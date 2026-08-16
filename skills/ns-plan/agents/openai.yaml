@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Plan"
+  short_description: "Create grounded, decision-complete plans"
+  default_prompt: "Use $ns-plan to create a grounded implementation plan for this task."
+policy:
+  allow_implicit_invocation: true
