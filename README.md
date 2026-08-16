@@ -12,7 +12,7 @@ Reusable Codex skills by Nick Schmidt.
 | [`ns-simplify`](skills/ns-simplify/) | Simplifies settled, recently changed code while preserving observable behavior. |
 | [`ns-ship-pr`](skills/ns-ship-pr/) | Commits owned changes, pushes a feature branch, and creates or refreshes one verified pull request. |
 | [`ns-compound`](skills/ns-compound/) | Captures one durable repository learning from solved or proven work. |
-| [`ns-compound-refresh`](skills/ns-compound-refresh/) | Audits and refreshes repository learnings as the codebase evolves. |
+| [`ns-compound-sync`](skills/ns-compound-sync/) | Audits and syncs repository learnings as the codebase evolves. |
 | [`llm-visibility-audit`](skills/llm-visibility-audit/) | Audits why websites are absent from AI-generated search results and prioritizes evidence-backed improvements. |
 
 ## Install

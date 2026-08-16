@@ -1,9 +1,9 @@
 ---
-name: ns-compound-refresh
-description: Audit and refresh an existing repository learning store when captured guidance may be stale, contradictory, overlapping, superseded, or broken by codebase change. Invoke explicitly with a file, area, module, keyword, or repository-wide scope after learnings have accumulated.
+name: ns-compound-sync
+description: Audit and sync an existing repository learning store when captured guidance may be stale, contradictory, overlapping, superseded, or broken by codebase change. Invoke explicitly with a file, area, module, keyword, or repository-wide scope after learnings have accumulated.
 ---
 
-# NS Compound Refresh
+# NS Compound Sync
 
 Keep repository learnings accurate, distinct, and trustworthy as the codebase evolves.
 
@@ -26,7 +26,7 @@ Resolve candidates using the narrowest supplied scope:
 2. directory or area;
 3. frontmatter field or tag;
 4. module, component, or content keyword; or
-5. the entire store when the user explicitly requests a repository-wide refresh.
+5. the entire store when the user explicitly requests a repository-wide sync.
 
 When no scope is supplied, inventory the store without editing, group documents by area, identify the highest-value maintenance scope using visible drift, overlap, or contradiction signals, and ask whether to proceed with that scope. When a supplied scope matches nothing, report the miss without widening it.
 
@@ -112,7 +112,7 @@ After each mutation, reread the complete affected documents and verify:
 - no inbound learning-document or catalog link now dangles; and
 - the owned diff contains only approved learning maintenance.
 
-Run an applicable documentation check when the repository configures one. Classify failures as refresh-owned, pre-existing, unrelated, environmental, or blocked. Fix refresh-owned failures. Revert an action whose central claim or safe content disposition cannot be validated.
+Run an applicable documentation check when the repository configures one. Classify failures as sync-owned, pre-existing, unrelated, environmental, or blocked. Fix sync-owned failures. Revert an action whose central claim or safe content disposition cannot be validated.
 
 **Complete when:** every applied action matches its classification and approval, the affected learning set is internally consistent, applicable checks are green or classified, and the owned diff contains no unverified or out-of-scope mutation.
 

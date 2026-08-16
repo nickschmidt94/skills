@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Compound Sync"
+  short_description: "Sync repository learning accuracy"
+  default_prompt: "Use $ns-compound-sync to audit and sync repository learnings in the selected scope."
+policy:
+  allow_implicit_invocation: false
