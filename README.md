@@ -10,6 +10,7 @@ Reusable Codex skills by Nick Schmidt.
 | [`ns-work`](skills/ns-work/) | Implements and locally verifies an approved plan or decision-complete change. |
 | [`ns-code-review`](skills/ns-code-review/) | Reviews changes for introduced defects and regression risk without modifying them. |
 | [`ns-simplify`](skills/ns-simplify/) | Simplifies settled, recently changed code while preserving observable behavior. |
+| [`llm-visibility-audit`](skills/llm-visibility-audit/) | Audits why websites are absent from AI-generated search results and prioritizes evidence-backed improvements. |
 
 ## Install
 

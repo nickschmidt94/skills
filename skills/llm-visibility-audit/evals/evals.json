@@ -1,0 +1,23 @@
+{
+  "skill_name": "llm-visibility-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit https://example.com for why it never appears in ChatGPT Search or Perplexity. I want the five highest-value fixes, not a generic SEO checklist. Stay read-only.",
+      "expected_output": "An evidence-backed audit that proves crawler and index eligibility, distinguishes search bots from training bots, identifies sourceworthiness gaps, and returns five prioritized fixes with verification steps.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We have a Next.js B2B site with hundreds of AI-written glossary pages. Build a plan to make us show up when buyers ask Copilot and Google AI Mode for vendor recommendations. We can change the repo but do not deploy.",
+      "expected_output": "A repo- and live-surface plan that prioritizes original evidence and independent authority over more glossary content, checks technical eligibility, distinguishes recommendation queries from informational queries, and defines implementation verification without deploying.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our agency says we need llms.txt, FAQ schema on every paragraph, and 500 new question pages to rank in AI. Review that proposal against current primary sources and tell me what is actually worth funding.",
+      "expected_output": "A current primary-source review that rejects unsupported tactics, preserves any valid conventional SEO work, and redirects spending toward eligibility, non-commodity information, authority, citation readiness, freshness, and measurement.",
+      "files": []
+    }
+  ]
+}
