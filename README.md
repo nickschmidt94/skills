@@ -8,16 +8,29 @@ Reusable Codex skills by Nick Schmidt.
 | --- | --- |
 | [`ns-plan`](skills/ns-plan/) | Creates grounded, decision-complete plans for multi-step software, product, and operational work. |
 
-## Install a skill
+## Install
 
-Clone this repository, then copy the skill you want into your Codex skills directory:
+### Codex and other coding agents
 
 ```bash
-git clone https://github.com/nickschmidt94/skills.git
-cp -R skills/skills/ns-plan ~/.codex/skills/ns-plan
+npx skills@latest add nickschmidt94/skills
 ```
 
-Restart Codex after installing a skill so it is discovered.
+Choose the skills you want and the coding agents where they should be installed.
+
+### Install `ns-plan` globally in Codex
+
+```bash
+npx skills@latest add nickschmidt94/skills --skill ns-plan -g -a codex
+```
+
+Global installation makes the skill available across all your Codex projects.
+
+### Update installed skills
+
+```bash
+npx skills update
+```
 
 ## License
 
