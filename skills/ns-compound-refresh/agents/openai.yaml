@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Compound Refresh"
+  short_description: "Refresh repository learning accuracy"
+  default_prompt: "Use $ns-compound-refresh to audit and refresh repository learnings in the selected scope."
+policy:
+  allow_implicit_invocation: false

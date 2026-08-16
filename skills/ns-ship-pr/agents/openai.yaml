@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Ship PR"
+  short_description: "Commit, push, and open one verified PR"
+  default_prompt: "Use $ns-ship-pr to commit the owned change, push it, and open or refresh its pull request."
+policy:
+  allow_implicit_invocation: true

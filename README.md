@@ -10,6 +10,9 @@ Reusable Codex skills by Nick Schmidt.
 | [`ns-work`](skills/ns-work/) | Implements and locally verifies an approved plan or decision-complete change. |
 | [`ns-code-review`](skills/ns-code-review/) | Reviews changes for introduced defects and regression risk without modifying them. |
 | [`ns-simplify`](skills/ns-simplify/) | Simplifies settled, recently changed code while preserving observable behavior. |
+| [`ns-ship-pr`](skills/ns-ship-pr/) | Commits owned changes, pushes a feature branch, and creates or refreshes one verified pull request. |
+| [`ns-compound`](skills/ns-compound/) | Captures one durable repository learning from solved or proven work. |
+| [`ns-compound-refresh`](skills/ns-compound-refresh/) | Audits and refreshes repository learnings as the codebase evolves. |
 | [`llm-visibility-audit`](skills/llm-visibility-audit/) | Audits why websites are absent from AI-generated search results and prioritizes evidence-backed improvements. |
 
 ## Install
