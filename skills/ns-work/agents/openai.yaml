@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Work"
+  short_description: "Implement and locally verify approved work"
+  default_prompt: "Use $ns-work to implement and locally verify this approved plan."
+policy:
+  allow_implicit_invocation: true

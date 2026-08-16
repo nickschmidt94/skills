@@ -1,0 +1,6 @@
+interface:
+  display_name: "NS Simplify"
+  short_description: "Simplify settled code without changing behavior"
+  default_prompt: "Use $ns-simplify to simplify the current change while preserving behavior."
+policy:
+  allow_implicit_invocation: true
