@@ -1,0 +1,41 @@
+name: Validate skills
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/validate-skills.yml"
+      - "AGENTS.md"
+      - "README.md"
+      - "requirements-dev.txt"
+      - "scripts/**"
+      - "skills/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/validate-skills.yml"
+      - "AGENTS.md"
+      - "README.md"
+      - "requirements-dev.txt"
+      - "scripts/**"
+      - "skills/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate skills
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install validation dependencies
+        run: python3 -m pip install -r requirements-dev.txt
+      - name: Validate collection
+        run: python3 scripts/validate_skills.py

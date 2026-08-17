@@ -1,0 +1,6 @@
+interface:
+  display_name: "LLM Visibility Audit"
+  short_description: "Audit evidence behind AI-search visibility"
+  default_prompt: "Use $llm-visibility-audit to audit this website and prioritize source-grounded improvements to its AI-search visibility."
+policy:
+  allow_implicit_invocation: true
