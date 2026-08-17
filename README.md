@@ -2,18 +2,34 @@
 
 Reusable Codex skills by Nick Schmidt.
 
-## Available skills
+The collection separates planning, local implementation, simplification, read-only review, publication, and durable repository learning into bounded workflows. Each skill grants only the authority described in its instructions.
 
-| Skill | What it does |
-| --- | --- |
-| [`ns-plan`](skills/ns-plan/) | Creates grounded, decision-complete plans for multi-step software, product, and operational work. |
-| [`ns-work`](skills/ns-work/) | Implements and locally verifies an approved plan or decision-complete change. |
-| [`ns-code-review`](skills/ns-code-review/) | Reviews changes for introduced defects and regression risk without modifying them. |
-| [`ns-simplify`](skills/ns-simplify/) | Simplifies settled, recently changed code while preserving observable behavior. |
-| [`ns-ship-pr`](skills/ns-ship-pr/) | Commits owned changes, pushes a feature branch, and creates or refreshes one verified pull request. |
-| [`ns-compound`](skills/ns-compound/) | Captures one durable repository learning from solved or proven work. |
-| [`ns-compound-sync`](skills/ns-compound-sync/) | Audits and syncs repository learnings as the codebase evolves. |
-| [`llm-visibility-audit`](skills/llm-visibility-audit/) | Audits why websites are absent from AI-generated search results and prioritizes evidence-backed improvements. |
+## Engineering workflow
+
+The main delivery path is:
+
+`ns-plan → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
+
+- [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
+- [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
+- [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
+- [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk without modifying the change.
+- [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
+
+Repository learning is a supporting path rather than a mandatory delivery step:
+
+- [`ns-compound`](skills/ns-compound/SKILL.md) captures one durable learning from solved or proven work.
+- [`ns-compound-sync`](skills/ns-compound-sync/SKILL.md) keeps accumulated repository learnings accurate as the codebase changes.
+
+## Domain audits
+
+- [`llm-visibility-audit`](skills/llm-visibility-audit/SKILL.md) audits why websites are absent from AI-generated results and prioritizes evidence-backed improvements.
+
+## Invocation
+
+`ns-compound` and `ns-compound-sync` are explicit-only skills. The other skills may be selected automatically when their descriptions match the request. Invocation never expands the user's authority: implementation, publication, deployment, and other consequential actions still require the authorization stated by the selected skill.
+
+Skills can be installed individually. References to sibling `$ns-*` skills are optional routing suggestions, not hard dependencies. When a suggested companion is unavailable, describe the equivalent next step in plain language instead of blocking the current workflow.
 
 ## Install
 
