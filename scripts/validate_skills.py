@@ -44,7 +44,9 @@ def validate_skill(skill_dir: Path, skill_names: set[str], errors: list[str]) ->
     else:
         frontmatter = load_yaml(skill_file, match.group(1), errors)
         if isinstance(frontmatter, dict):
-            unsupported = sorted(set(frontmatter) - {"name", "description"})
+            unsupported = sorted(
+                set(frontmatter) - {"name", "description", "disable-model-invocation"}
+            )
             if unsupported:
                 errors.append(
                     f"{skill_file.relative_to(ROOT)}: unsupported frontmatter fields: {', '.join(unsupported)}"
@@ -68,6 +70,14 @@ def validate_skill(skill_dir: Path, skill_names: set[str], errors: list[str]) ->
             if not isinstance(description, str) or not description.strip():
                 errors.append(
                     f"{skill_file.relative_to(ROOT)}: description must be a non-empty string"
+                )
+
+            disable_model_invocation = frontmatter.get("disable-model-invocation")
+            if disable_model_invocation is not None and not isinstance(
+                disable_model_invocation, bool
+            ):
+                errors.append(
+                    f"{skill_file.relative_to(ROOT)}: disable-model-invocation must be a boolean"
                 )
         elif frontmatter is not None:
             errors.append(

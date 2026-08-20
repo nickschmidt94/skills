@@ -1,0 +1,6 @@
+interface:
+  display_name: "Skill Retrospective"
+  short_description: "Improve a skill from completed-run evidence"
+  default_prompt: "Use $skill-retrospective to decide whether the last skill run exposed a durable improvement and update the skill only when justified."
+policy:
+  allow_implicit_invocation: true

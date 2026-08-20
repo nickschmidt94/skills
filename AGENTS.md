@@ -14,12 +14,13 @@ This repository publishes independently installable agent skills. Keep the colle
 
 - List every public skill exactly once in the top-level `README.md` and link its name directly to `skills/<skill-name>/SKILL.md`.
 - Keep the README's invocation description synchronized with `policy.allow_implicit_invocation` in `agents/openai.yaml`.
-- Treat cross-skill `$ns-*` references as optional routing suggestions because users may install skills individually. If the companion is unavailable, explain the equivalent next step in plain language.
+- Treat cross-skill references as optional routing suggestions because users may install skills individually. If the companion is unavailable, explain the equivalent next step in plain language.
 - Never let skill invocation broaden the authority granted by the user or the selected skill.
 
 ## Changes
 
 - Preserve unrelated user changes and follow the nearest applicable repository instructions.
+- Update `CHANGELOG.md` under `Unreleased` when a public skill is added, removed, renamed, or behaviorally changed. Omit typo-only, formatting-only, and invisible maintenance changes unless they alter installation, validation, or use.
 - When renaming a skill, update its directory, frontmatter, agent metadata, README entry, cross-skill references, evals, and installed-source documentation together.
 - Keep `SKILL.md` focused on operative instructions. Do not add auxiliary setup guides or duplicate detailed reference material in the skill body.
 - Install `requirements-dev.txt`, then run `python3 scripts/validate_skills.py` before considering a repository change complete.

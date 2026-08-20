@@ -2,7 +2,9 @@
 
 Reusable Codex skills by Nick Schmidt.
 
-The collection separates planning, local implementation, simplification, read-only review, publication, and durable repository learning into bounded workflows. Each skill grants only the authority described in its instructions.
+The collection separates planning, local implementation, simplification, read-only review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
+
+See the [changelog](CHANGELOG.md) for meaningful skill improvements and additions.
 
 ## Engineering workflow
 
@@ -16,10 +18,11 @@ The main delivery path is:
 - [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk without modifying the change.
 - [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
 
-Repository learning is a supporting path rather than a mandatory delivery step:
+Compounding is a supporting path rather than a mandatory delivery step:
 
-- [`ns-compound`](skills/ns-compound/SKILL.md) captures one durable learning from solved or proven work.
+- [`ns-compound`](skills/ns-compound/SKILL.md) judges whether completed work produced one learning worth preserving, then captures it in the repository or improves the skill that shaped the run.
 - [`ns-compound-sync`](skills/ns-compound-sync/SKILL.md) keeps accumulated repository learnings accurate as the codebase changes.
+- [`skill-retrospective`](skills/skill-retrospective/SKILL.md) improves one skill when a completed run exposes a durable, evidence-backed lesson.
 
 ## Domain audits
 
@@ -29,7 +32,7 @@ Repository learning is a supporting path rather than a mandatory delivery step:
 
 `ns-compound` and `ns-compound-sync` are explicit-only skills. The other skills may be selected automatically when their descriptions match the request. Invocation never expands the user's authority: implementation, publication, deployment, and other consequential actions still require the authorization stated by the selected skill.
 
-Skills can be installed individually. References to sibling `$ns-*` skills are optional routing suggestions, not hard dependencies. When a suggested companion is unavailable, describe the equivalent next step in plain language instead of blocking the current workflow.
+Skills can be installed individually. References to sibling skills are optional routing suggestions, not hard dependencies. When a suggested companion is unavailable, describe the equivalent next step in plain language instead of blocking the current workflow.
 
 ## Install
 

@@ -1,137 +1,89 @@
 ---
 name: ns-compound
-description: Capture one earned repository learning from a solved engineering problem, settled technical decision, or proven pattern. Invoke explicitly after work when the learning should be preserved for future engineering.
+description: "Assess completed work for a durable learning worth preserving, then either capture one repository learning or improve one reusable skill. Invoke explicitly after a task when the user wants a compounding judgment; no capture is a valid outcome."
+disable-model-invocation: true
 ---
 
 # NS Compound
 
-Preserve one durable learning that will make similar future work easier.
+Judge whether completed work earned a durable future-facing change. Capturing nothing is a complete outcome.
 
 Use four standards throughout:
 
-- **Earned** — verified, reusable, non-obvious, and cheaper to retrieve than rediscover.
-- **Singular** — one coherent problem, decision, or pattern per invocation.
-- **Grounded** — factual claims match current evidence or are clearly marked as historical.
-- **Findable** — location, title, metadata, terminology, and links support later retrieval.
+- **Qualified** — evidence-backed, behavior-changing, and worth more than its retrieval and maintenance cost.
+- **Singular** — one coherent learning and one primary destination per invocation.
+- **Placed** — stored where a future agent will encounter it at the decision point.
+- **Lean** — the change replaces, sharpens, or removes weak guidance before adding more.
 
-This skill authorizes creating or updating one repository-local learning document and its required parent directory. When a repository first adopts a learning store or changes its path, the skill may propose one setup pointer in the active repository instructions. Apply that instruction-file edit only after the user explicitly approves the exact change; invoking this skill alone is not that approval. Keep source code, glossaries, other learning documents, git state, and external systems unchanged unless the user separately authorizes that work.
+Invoking this skill authorizes one local capture only after qualification: one repository learning document, or one targeted improvement to one user-owned or workspace skill. It does not authorize source-code changes, memory updates, unrelated documentation edits, git publication, or external actions. Preserve pre-existing changes.
 
-## 1. Qualify
+## 1. Assess
 
-Resolve the target repository and the candidate learning from the request and current conversation. Classify it as one of three branches:
+Begin with an observed delta from the completed run:
 
-- **Problem:** a diagnosed failure with a verified resolution.
-- **Decision:** a settled technical choice with durable rationale or consequences.
-- **Pattern:** a repeatedly useful approach supported by working evidence.
+- a user correction;
+- a failed assumption with a verified resolution;
+- a settled decision with durable rationale;
+- a proven pattern; or
+- a repeated workaround that reveals a reusable mechanism problem.
 
-Apply the Earned test. Preserve the learning only when all four conditions hold:
+When the run contains no observed delta, finish with `no capture`. Difficulty, novelty, or time spent matters only when it creates future decision value.
 
-1. The outcome is solved, settled, or proven.
-2. Current evidence supports it.
-3. It could materially improve later work.
-4. The important insight is not obvious from reading one current source file.
+Apply the **Value gate**. Capture only when all five conditions hold:
 
-When several distinct learnings qualify, use the one named by the user or ask which one to capture. When none qualifies, report why documentation was skipped and leave the repository unchanged.
+1. supported by current evidence from the run;
+2. likely to remain true and recur in a plausible future task;
+3. able to change a specific future decision or behavior;
+4. not already cheap to recover from current code, tests, documentation, or existing learnings; and
+5. expected to save more future effort or error than the new guidance will cost to retrieve, maintain, and keep current.
 
-**Complete when:** exactly one problem, decision, or pattern passes every Earned condition, or the run has ended without writing.
+The burden of proof is on capture. A one-off outage, transient state, vague preference, unverified hunch, or already-discoverable fact completes this step as `no capture` with no file changes.
 
-## 2. Ground
+**Complete when:** either a qualified candidate names its evidence, plausible future task, changed behavior, and retrieval gap, or `no capture` names the first Value-gate condition that failed. Both outcomes complete the skill successfully.
 
-Inspect the smallest current source set that can support the learning:
+## 2. Place
 
-- applicable repository instructions and existing documentation conventions;
-- the affected implementation, configuration, tests, or operational evidence;
-- the owned change and fresh verification that established the outcome; and
-- relevant history only when it explains a failed approach, constraint, or decision that current files cannot reveal.
+Choose exactly one primary home:
 
-Use current repository evidence for present behavior. Use the conversation and available memory as supplementary context. Mark pre-fix behavior, removed paths, and superseded approaches as historical. Include lifecycle or publication state only when it matters to the learning and can be verified from its authoritative source.
+- **Repository learning** — the truth is specific to a codebase: a solved engineering problem, settled technical decision, proven repository pattern, or non-obvious operational constraint.
+- **Skill improvement** — the run exposed a durable issue in a skill's trigger, instruction, sequence, completion criterion, reference, or script that could affect future uses across tasks or repositories.
+- **Wrong home** — the needed change belongs in product code, ordinary documentation, an automation, a user preference store, memory, an upstream package, or another system outside this skill's authority.
 
-For every load-bearing claim, locate supporting evidence or rewrite it as bounded context rather than fact. A verified local outcome may be documented without claiming that it has been committed, pushed, merged, deployed, or published.
+Prefer the skill branch only when changing the skill would have changed the run. Prefer the repository branch when the lesson would be wrong or noisy outside that repository. If both could benefit, select the upstream cause that prevents recurrence; capture the other only in a separate invocation. Ask the user only when the destinations are equally plausible and would produce materially different changes.
 
-**Complete when:** every load-bearing claim is verified, explicitly historical, bounded by attributed uncertainty, or removed, and the evidence proves the learning's outcome.
+**Complete when:** the learning has one justified destination and no second mutation is bundled into the run.
 
-## 3. Reconcile
+## 3. Compound
 
-Inspect the live repository for an established learning store, naming convention, metadata shape, taxonomy, and terminology. Search existing learnings by the affected area, symptoms, root cause, decision, pattern, and likely tags before choosing a destination.
+### Repository learning
 
-Choose the target by overlap:
+Read and follow [references/repository-learning.md](references/repository-learning.md). Load it only for this branch.
 
-- **Same learning:** update the existing document, preserving its path and established metadata shape.
-- **Related learning:** create a distinct document and add a useful relationship link in the new document.
-- **No related learning:** create a distinct document normally.
+### Skill improvement
 
-Follow the repository's established location. If none exists, use `docs/learnings/<descriptive-slug>.md`. Choose a stable descriptive slug without a date; metadata records when the learning was captured. Keep every destination inside the repository.
+Resolve the exact target skill from the request and current run. Before judging or editing it, read `$writing-for-agents` completely, including its skill-mechanics reference, then follow `$skill-retrospective` when available. If the retrospective skill is unavailable, apply its equivalent loop directly: reconstruct the run evidence, classify the lesson, pass the improvement gate, make the smallest targeted edit, and validate the complete changed surface.
 
-Run discoverability setup only when creating a learning store, adopting an existing store that active repository instructions do not yet surface, or changing the store's established path. Once the instructions surface the unchanged concrete path, later runs skip this setup branch entirely.
+Use the **Lean test** while applying that workflow:
 
-For setup, use the active substantive repository instruction file. The pointer must name the concrete repo-relative store path, describe it as verified problems, technical decisions, and proven patterns, and tell agents to search it before related planning, implementation, debugging, or review. Draft the smallest addition that fits the file's existing structure and voice. A suitable fallback shape is:
+1. Remove stale or counterproductive guidance when that fully fixes the issue.
+2. Replace or sharpen the instruction nearest the failed decision point.
+3. Move branch-only detail behind an existing or justified context pointer.
+4. Add new prose only when the first three treatments cannot express the learning.
 
-```markdown
-`docs/learnings/` contains verified repository learnings—solved problems, technical decisions, and proven patterns. Search it by area and tags before related planning, implementation, debugging, or review.
-```
+Keep one meaning in one place. Do not append a lessons-learned section, transcript detail, or a rule that merely restates capable-agent defaults. Add a script only for demonstrated repeated deterministic work. If the target is a system-managed, plugin-cache, or otherwise externally owned skill, leave it unchanged and report the source-owned patch that would be needed.
 
-Record the exact file, placement, and proposed text, but leave repository instructions unchanged until the learning passes Step 5. When no repository instruction file exists, prepare a minimal repo-root `AGENTS.md` proposal containing the pointer.
+Validate the edited skill with the active skill validator when available. Re-read the complete changed surface, including frontmatter, routing pointers, relevant references, scripts, UI metadata, and invocation policy. A valid file is not sufficient: the change must be likely to alter the future decision that failed.
 
-**Complete when:** the create-or-update decision is supported by a corpus search, the exact target path is known, no known document already owns the same learning under another path, and the setup branch is either unnecessary or represented by one exact pending proposal.
+**Complete when:** one target skill is minimally improved and validated, or the evidence supports `no change` or `wrong home` without mutation.
 
-## 4. Write
-
-Match the existing corpus when it has a stable format. Otherwise begin with:
-
-```markdown
----
-date: YYYY-MM-DD
-kind: problem
-area: repository-specific-area
-tags:
-  - relevant-term
----
-
-# Descriptive learning title
-```
-
-Use the branch-specific structure that fits the learning:
-
-- **Problem:** Problem, Evidence, Investigation, Resolution, Why It Works, Verification, Prevention.
-- **Decision:** Context, Decision, Alternatives, Rationale, Consequences, When It Applies.
-- **Pattern:** Context, Pattern, Evidence, Examples, Boundaries, When It Applies.
-
-Include only sections carrying material information. Preserve failed approaches when they prevent a likely repeated dead end. Use concise code or command excerpts only when the learning depends on their exact shape; prefer repository-relative references to duplicating discoverable implementation. Add related links when they materially improve navigation.
-
-Write for a future agent with no access to this conversation. Explain the reusable insight and the evidence needed to trust it rather than narrating the work session.
-
-**Complete when:** the document stands alone, preserves one learning, follows the repository's corpus or the default format, and contains no empty, duplicated, or ceremonial sections.
-
-## 5. Validate
-
-Re-read the complete document against its evidence. Check every factual behavior, path, command, code excerpt, internal link, historical statement, and countable assertion. Confirm that:
-
-- current claims still match the working tree and verification evidence;
-- historical claims are recognizable as historical;
-- paths and links resolve or are intentionally described as removed;
-- excerpts preserve the semantics required by the learning;
-- metadata parses and follows the chosen corpus convention;
-- the title and terminology make the document discoverable; and
-- no placeholder, drafting scaffold, unsupported certainty, or session-only reference remains.
-
-Run a configured repository documentation check when one exists and applies. Correct contradictions from authoritative evidence. Soften or remove claims that cannot be verified without weakening the central learning; if the central learning itself cannot be supported, remove the draft and report that capture was skipped.
-
-After the learning passes every check, resolve any pending one-time discoverability proposal from Step 3. Show the exact file, placement, and text, then request explicit consent before editing. Prior authorization counts only when the user specifically authorized adding the missing pointer. If approved, make one targeted edit and reread the instruction file to verify the pointer and preserve surrounding content. If consent is declined or unavailable, preserve the instructions and report the proposal.
-
-**Complete when:** every check above passes, applicable documentation verification is green or classified, the final document contains no unsupported load-bearing claim, and any pending setup is either verified or reported without an unapproved edit.
-
-## 6. Deliver
+## 4. Deliver
 
 Report:
 
-- the learning captured;
-- whether the document was created or updated;
-- its repository-relative path;
-- the evidence and verification used;
-- related material linked from the document;
-- one-time discoverability setup performed or proposed, when that branch ran; and
-- remaining uncertainty or unavailable checks.
+- `Decision: captured | updated | no capture | wrong home | needs user input`;
+- the qualified learning, or the first Value-gate condition that failed;
+- the selected destination and exact changed path, or why nothing changed;
+- evidence and validation actually used; and
+- any remaining uncertainty or separately useful follow-up.
 
-Stop with the validated learning document and, when approved, its single discoverability pointer. Leave broader documentation maintenance and publication to separately authorized work.
-
-**Complete when:** a future agent can find, understand, trust, and apply the learning without the original conversation, and the user can identify exactly what changed from the delivery report.
+Keep the report short. The compounding value is the future behavior change, not the ceremony around recording it.
