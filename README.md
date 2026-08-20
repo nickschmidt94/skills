@@ -4,6 +4,8 @@ Reusable Codex skills by Nick Schmidt.
 
 The collection separates planning, local implementation, simplification, read-only review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
 
+See the [changelog](CHANGELOG.md) for meaningful skill improvements and additions.
+
 ## Engineering workflow
 
 The main delivery path is:

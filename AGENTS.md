@@ -20,6 +20,7 @@ This repository publishes independently installable agent skills. Keep the colle
 ## Changes
 
 - Preserve unrelated user changes and follow the nearest applicable repository instructions.
+- Update `CHANGELOG.md` under `Unreleased` when a public skill is added, removed, renamed, or behaviorally changed. Omit typo-only, formatting-only, and invisible maintenance changes unless they alter installation, validation, or use.
 - When renaming a skill, update its directory, frontmatter, agent metadata, README entry, cross-skill references, evals, and installed-source documentation together.
 - Keep `SKILL.md` focused on operative instructions. Do not add auxiliary setup guides or duplicate detailed reference material in the skill body.
 - Install `requirements-dev.txt`, then run `python3 scripts/validate_skills.py` before considering a repository change complete.
