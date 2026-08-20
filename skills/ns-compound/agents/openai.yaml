@@ -1,6 +1,6 @@
 interface:
   display_name: "NS Compound"
-  short_description: "Capture durable repository learnings"
-  default_prompt: "Use $ns-compound to preserve one verified repository learning from this task."
+  short_description: "Judge whether one learning is worth capture"
+  default_prompt: "Use $ns-compound to decide whether this task produced a durable learning worth preserving; capture at most one only if it passes the Value gate."
 policy:
   allow_implicit_invocation: false

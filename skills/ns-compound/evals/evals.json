@@ -1,0 +1,30 @@
+{
+  "skill_name": "ns-compound",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We fixed a repository-specific Next.js route failure and proved the non-obvious cause. Compound the learning for this repo.",
+      "expected_output": "First establishes the future task, changed behavior, retrieval gap, and net value, then routes to the repository-learning branch, searches the existing corpus, captures exactly one evidence-backed learning, and leaves source code and publication state unchanged."
+    },
+    {
+      "id": 2,
+      "prompt": "I used the report QA skill in this chat, corrected it twice because it stopped before checking the real mobile route, and now the work is done. Run compound on what happened.",
+      "expected_output": "Routes to skill improvement, reads writing-for-agents and skill-retrospective, verifies the correction from the run, and sharpens or replaces the target skill's completion guidance instead of appending a diary-like lesson."
+    },
+    {
+      "id": 3,
+      "prompt": "The image site had a one-time outage during this run. Compound anything useful.",
+      "expected_output": "Fails the Value gate unless the run exposed a durable missing behavior, reports no capture as a successful outcome, and does not add a speculative outage rule to a repository or skill."
+    },
+    {
+      "id": 4,
+      "prompt": "A repo-specific workaround was needed because a general skill instruction was wrong. Compound this.",
+      "expected_output": "Selects the upstream skill cause as the single primary destination when changing it would prevent recurrence, avoids mutating both destinations in one invocation, and identifies a separate repository capture only as an optional follow-up."
+    },
+    {
+      "id": 5,
+      "prompt": "The task is finished. Nothing surprising happened; the implementation followed the existing documentation and tests. Run compound.",
+      "expected_output": "Finds no observed delta or retrieval gap, reports no capture as a complete successful outcome, and does not invent a learning merely because the skill was invoked."
+    }
+  ]
+}

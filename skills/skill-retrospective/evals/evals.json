@@ -1,0 +1,20 @@
+{
+  "skill_name": "skill-retrospective",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just ran tradingwebsite-report-qa and it missed that the public share card still needed validation. Run a skill retrospective and update the skill if that should be part of the loop.",
+      "expected_output": "Resolves the target skill, treats the missed validation as durable run evidence, patches the target near its verification or completion section, and reports the changed file plus validation."
+    },
+    {
+      "id": 2,
+      "prompt": "I ran the image skill but the provider was down, so the output got weird. Do a skill retrospective and help it learn if there is anything to learn.",
+      "expected_output": "Classifies the issue as one-off or wrong-home unless the target lacked durable outage handling, avoids appending vague lessons, and reports no change or a tiny targeted guardrail."
+    },
+    {
+      "id": 3,
+      "prompt": "After using content-brain, you kept polishing my X post too much even after I said keep it rough. Run skill-retrospective on that skill.",
+      "expected_output": "Reads the target skill, identifies a stable preference if supported by the thread, patches the relevant writing instruction without overfitting to the exact post, and reports validation."
+    }
+  ]
+}

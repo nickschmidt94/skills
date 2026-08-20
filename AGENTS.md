@@ -14,7 +14,7 @@ This repository publishes independently installable agent skills. Keep the colle
 
 - List every public skill exactly once in the top-level `README.md` and link its name directly to `skills/<skill-name>/SKILL.md`.
 - Keep the README's invocation description synchronized with `policy.allow_implicit_invocation` in `agents/openai.yaml`.
-- Treat cross-skill `$ns-*` references as optional routing suggestions because users may install skills individually. If the companion is unavailable, explain the equivalent next step in plain language.
+- Treat cross-skill references as optional routing suggestions because users may install skills individually. If the companion is unavailable, explain the equivalent next step in plain language.
 - Never let skill invocation broaden the authority granted by the user or the selected skill.
 
 ## Changes
