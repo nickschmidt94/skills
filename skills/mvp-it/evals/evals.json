@@ -1,0 +1,25 @@
+{
+  "skill_name": "mvp-it",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use MVP mode to cut my half-built SaaS to the smallest launch. It has login, a working report generator, team workspaces, and an unfinished analytics dashboard, but I have not decided how to charge or where the first customers will come from.",
+      "expected_output": "Selects ship mode, identifies the report outcome as the likely launch core without inventing demand, marks pricing and distribution as decisive unknowns, defers nonessential workspace and analytics scope, and proposes a reversible commitment test and observable launch gate."
+    },
+    {
+      "id": 2,
+      "prompt": "Review my popular free weekly market report as a possible paid product. Traffic and reading engagement are strong, but I have no preorders, conversion data, renewal evidence, or measured support burden. Should I build the full membership now?",
+      "expected_output": "Selects review mode, separates engagement evidence from willingness-to-pay and retention unknowns, avoids treating traffic as paid validation, and recommends a bounded manual payment experiment before a full membership build."
+    },
+    {
+      "id": 3,
+      "prompt": "Brainstorm tiny software products I can sell to traders. I have not shared a recurring trader problem, audience evidence, distribution channel, time budget, or existing product context.",
+      "expected_output": "Selects brainstorm mode, refuses to fabricate market pain or portfolio leverage, identifies the missing evidence, and either asks one decisive question or offers clearly conditional validation directions rather than unsupported product ideas."
+    },
+    {
+      "id": 4,
+      "prompt": "Use mvp-it to tell me whether to keep, pivot, sell, or kill my old app. It made $800 last month, but that is the only period I have and I do not know its costs, maintenance time, customer obligations, or transferability. Give me a valuation too.",
+      "expected_output": "Selects flip mode, returns insufficient evidence rather than inferring a trend, leaves valuation unknown without current marketplace evidence, preserves customers and data, and gives a bounded evidence-gathering decision rule."
+    }
+  ]
+}
