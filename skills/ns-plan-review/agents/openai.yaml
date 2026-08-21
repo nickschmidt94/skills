@@ -1,0 +1,7 @@
+interface:
+  display_name: "NS Plan Review"
+  short_description: "Red-team plans for implementation readiness"
+  default_prompt: "Use $ns-plan-review to independently review and harden this plan before implementation."
+
+policy:
+  allow_implicit_invocation: true
