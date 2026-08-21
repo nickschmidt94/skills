@@ -1,6 +1,6 @@
 ---
 name: ns-plan-review
-description: Independently red-team a completed software, product, or operational plan for implementation readiness, harden proven gaps, and re-review until ready or blocked. Use after planning and before implementation; do not use to create the initial plan or review code changes.
+description: Independently red-team and directly harden a completed software, product, or operational plan for implementation readiness. Apply proven fixes to the plan and re-review until ready or blocked. Use after planning and before implementation; do not use to create the initial plan or review code changes.
 ---
 
 # NS Plan Review
@@ -8,8 +8,8 @@ description: Independently red-team a completed software, product, or operationa
 Review a settled plan as a literal implementation contract. Find only defects
 that could change the outcome, cross authority, lose work, prevent verification,
 or force consequential redesign during implementation. Prove each finding,
-make the smallest safe plan amendment when authorized, and close the loop with
-a fresh whole-plan review.
+apply the smallest safe plan amendment without returning control between fixes,
+and close the loop with a fresh whole-plan review.
 
 ## Leading Concepts
 
@@ -18,17 +18,20 @@ a fresh whole-plan review.
 - **Literal:** Assume a capable implementer follows only what the plan says.
 - **Proven:** Keep findings tied to an exact plan location and authoritative
   evidence.
+- **Repair:** Apply proven, decision-complete amendments directly to the plan.
 - **Closed-loop:** A hardened plan is not ready until the revised whole plan is
   reviewed again.
 
 ## Scope and Authority
 
-The default mode is **harden**: review the plan and edit only the reviewed plan
-artifact when a proven finding has a decision-complete amendment.
+The default mode is **harden**: review the plan, apply every proven and
+decision-complete amendment directly to the reviewed plan, then re-review it
+until ready or blocked. A safe fix is work to complete, not merely a finding to
+present.
 
 Use **report-only** mode when the user says `review only`, `report-only`, or
-otherwise forbids modifications. If the plan exists only in conversation,
-default to report-only unless the user explicitly asks for a rewritten plan.
+otherwise forbids modifications. In harden mode, treat an inline plan as an
+editable deliverable and return its complete revised replacement.
 
 This skill may:
 
@@ -36,12 +39,12 @@ This skill may:
   read-only state needed to test its claims;
 - inspect code, tests, configuration, schemas, APIs, queues, PR state, or live
   read-only surfaces when they are authoritative for the plan;
-- edit only the plan artifact in harden mode.
+- edit only the plan artifact, or rewrite the inline plan, in harden mode.
 
 This skill must not:
 
-- implement the plan or change product code, tests, configuration, data, or
-  infrastructure;
+- execute the plan or change product code, tests, configuration, data, or
+  infrastructure; implementing a finding means amending the plan itself;
 - commit, push, deploy, merge, publish, send, trade, purchase, or trigger other
   consequential external effects;
 - silently expand the plan's outcome, non-goals, authority, or acceptance bar;
@@ -182,7 +185,7 @@ checkable; preference-only and duplicate findings are gone.
 Reconcile reviewer findings against the plan and authoritative evidence. Do not
 accept a finding merely because another agent produced it.
 
-In harden mode, amend the plan only when the amendment:
+In harden mode, directly apply every amendment that:
 
 - fixes a proven finding;
 - preserves the settled outcome, constraints, and non-goals;
@@ -190,21 +193,29 @@ In harden mode, amend the plan only when the amendment:
 - changes only the plan artifact;
 - preserves stable step or requirement IDs when they exist.
 
-Record the finding as fixed with its exact amendment. Leave disputed,
-insufficiently evidenced, or authority-expanding findings unresolved and explain
-why. In report-only mode, propose the amendment without editing.
+Batch compatible amendments into the plan without pausing for confirmation or
+returning a safe fix as a recommendation. Resolve a gap from authoritative
+evidence and settled constraints when exactly one compatible answer follows.
+
+Record each applied change with its exact plan location and the implementation-
+time question, handoff, or recovery gap it removes. Leave disputed,
+insufficiently evidenced, authority-expanding, or genuinely choice-dependent
+findings unresolved and explain why. In report-only mode, propose amendments
+without editing.
 
 If a finding reveals a missing user decision that would materially change the
 outcome or authority, do not guess. Mark it unresolved.
 
-Completion check: each finding is fixed, rejected with evidence, or unresolved
-for a named reason; no implementation artifact has changed.
+Completion check: every safe, decision-complete fix has been applied to the
+plan; each remaining finding is rejected with evidence or unresolved for a
+named reason; no implementation artifact has changed.
 
 ### 6. Re-review the complete revised plan
 
 After any amendment, run a fresh whole-plan review. Prefer a fresh independent
 reviewer and send the revised plan as a clean packet without the earlier
-findings, defenses, or change explanations.
+findings, defenses, or change explanations. Apply any new proven,
+decision-complete findings and repeat the whole-plan review.
 
 Do not limit the second pass to edited sections. Amendments can create new
 contradictions elsewhere.
@@ -231,20 +242,32 @@ Use exactly one verdict:
 Report in this order:
 
 1. verdict;
-2. fixed findings, including exact amendments;
-3. unresolved findings, highest severity first;
-4. rejected or non-blocking observations only when they clarify a disputed
+2. the updated plan artifact, or the complete revised plan when it was inline;
+3. applied changes, including exact locations and the implementation-time
+   question, handoff, or recovery gap each change removed;
+4. unresolved findings, highest severity first;
+5. rejected or non-blocking observations only when they clarify a disputed
    point;
-5. independence used or fallback disclosed;
-6. evidence inspected and checks actually performed;
-7. the next required action.
+6. independence used or fallback disclosed;
+7. evidence inspected and checks actually performed;
+8. the next required action.
 
 If there are no findings, say so directly. Never manufacture findings to make
 the review appear valuable.
 
-## Finding Format
+## Change Formats
 
-Use this compact structure for each surviving finding:
+Use this compact structure for each applied change:
+
+```text
+[Applied] Short repair
+Location: Plan step or requirement ID
+Change: Exact amendment made
+Autonomy gained: Implementation-time question, handoff, or recovery gap removed
+Evidence: Authoritative source or plan contradiction
+```
+
+Use this compact structure for each unresolved or rejected finding:
 
 ```text
 [P1] Short defect title
@@ -253,9 +276,9 @@ Trigger: Exact execution scenario
 Consequence: Material failure
 Evidence: Authoritative source or plan contradiction
 Amendment: Smallest exact plan change
-Status: Fixed | Unresolved | Rejected
+Status: Unresolved | Rejected
 Confidence: High | Medium | Low
 ```
 
-The final output is the hardened plan plus its review verdict, not a second
-competing plan.
+The final output is the updated plan plus its review verdict and applied-change
+summary, not a findings report or a second competing plan.

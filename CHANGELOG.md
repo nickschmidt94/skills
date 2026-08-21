@@ -6,7 +6,7 @@ Meaningful changes to public skill behavior, installation, and validation are re
 
 ### Added
 
-- `ns-plan-review` independently red-teams completed plans, hardens proven implementation-readiness gaps, and re-reviews the revised whole plan before implementation.
+- `ns-plan-review` independently red-teams completed plans, directly applies proven implementation-readiness fixes without pausing between safe amendments, and re-reviews the revised whole plan before implementation.
 - `skill-retrospective` turns evidence from a completed skill run into one justified skill improvement, while treating `no change` as a valid result.
 - Behavioral evals cover repository capture, skill improvement, one-off noise, competing destinations, and runs with nothing worth preserving.
 
