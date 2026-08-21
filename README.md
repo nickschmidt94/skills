@@ -2,7 +2,7 @@
 
 Reusable Codex skills by Nick Schmidt.
 
-The collection separates planning, local implementation, simplification, closed-loop review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
+The collection separates planning, plan review, local implementation, simplification, closed-loop code review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
 
 See the [changelog](CHANGELOG.md) for meaningful skill improvements and additions.
 
@@ -10,9 +10,10 @@ See the [changelog](CHANGELOG.md) for meaningful skill improvements and addition
 
 The main delivery path is:
 
-`ns-plan → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
+`ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
 
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
+- [`ns-plan-review`](skills/ns-plan-review/SKILL.md) independently red-teams completed plans, directly applies proven fixes, and re-reviews them before implementation.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
 - [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
