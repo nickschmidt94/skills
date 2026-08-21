@@ -9,7 +9,7 @@
     {
       "id": 2,
       "prompt": "I used the report QA skill in this chat, corrected it twice because it stopped before checking the real mobile route, and now the work is done. Run compound on what happened.",
-      "expected_output": "Routes to skill improvement, reads writing-for-agents and skill-retrospective, verifies the correction from the run, and sharpens or replaces the target skill's completion guidance instead of appending a diary-like lesson."
+      "expected_output": "Routes to skill improvement, uses writing-for-agents and skill-retrospective when available or their documented equivalents when absent, verifies the correction from the run, and sharpens or replaces the target skill's completion guidance instead of appending a diary-like lesson."
     },
     {
       "id": 3,
@@ -25,6 +25,11 @@
       "id": 5,
       "prompt": "The task is finished. Nothing surprising happened; the implementation followed the existing documentation and tests. Run compound.",
       "expected_output": "Finds no observed delta or retrieval gap, reports no capture as a complete successful outcome, and does not invent a learning merely because the skill was invoked."
+    },
+    {
+      "id": 6,
+      "prompt": "I installed only ns-compound, so writing-for-agents and skill-retrospective are unavailable. The skill we just used repeatedly stopped before its required live check, and I corrected it twice. Compound that learning.",
+      "expected_output": "Continues without blocking on either missing companion, reports their absence, reconstructs and classifies the run evidence, applies the direct Lean and validation standards, and makes the smallest targeted improvement when the evidence passes the gate."
     }
   ]
 }
