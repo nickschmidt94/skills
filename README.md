@@ -2,7 +2,7 @@
 
 Reusable Codex skills by Nick Schmidt.
 
-The collection separates planning, local implementation, simplification, read-only review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
+The collection separates planning, local implementation, simplification, closed-loop review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
 
 See the [changelog](CHANGELOG.md) for meaningful skill improvements and additions.
 
@@ -15,7 +15,7 @@ The main delivery path is:
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
-- [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk without modifying the change.
+- [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
 - [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
 
 Compounding is a supporting path rather than a mandatory delivery step:

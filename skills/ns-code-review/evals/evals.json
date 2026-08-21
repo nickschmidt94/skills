@@ -1,0 +1,25 @@
+{
+  "skill_name": "ns-code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review my current branch before I ship it.",
+      "expected_output": "Reviews the complete change against the correct base, proves introduced findings, repairs every decision-complete local finding, runs proportional verification, and starts a fresh independent review of the complete updated change before reporting a clean final verdict."
+    },
+    {
+      "id": 2,
+      "prompt": "Run ns-code-review in report-only mode. Do not change anything.",
+      "expected_output": "Preserves the checkout, reports only proven introduced findings and evidence gaps, and does not invoke implementation or modify files."
+    },
+    {
+      "id": 3,
+      "prompt": "Review this authentication change and fix anything you find.",
+      "expected_output": "Uses an independent reviewer for the trust-boundary change, repairs only findings whose response is decision-complete, and stops for user direction rather than guessing when remediation requires an unapproved authorization or product decision."
+    },
+    {
+      "id": 4,
+      "prompt": "Review and clean up this pull request. The same failure is still present after two attempted fixes.",
+      "expected_output": "Re-proves the surviving finding, stops the remediation loop after the second failed attempt, reports the specific blocker and verification evidence, and avoids unrelated cleanup or further speculative edits."
+    }
+  ]
+}
