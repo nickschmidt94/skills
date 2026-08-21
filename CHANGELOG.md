@@ -6,6 +6,8 @@ Meaningful changes to public skill behavior, installation, and validation are re
 
 ### Added
 
+- `mvp-it` turns MVP scoping, solo-product review, grounded brainstorming, and keep-pivot-retire-sell decisions into evidence-gated workflows with explicit authority boundaries.
+- `mvp-it` behavioral evals cover all four decision modes, including incomplete demand, monetization, trend, and valuation evidence.
 - `skill-retrospective` turns evidence from a completed skill run into one justified skill improvement, while treating `no change` as a valid result.
 - Behavioral evals cover repository capture, skill improvement, one-off noise, competing destinations, and runs with nothing worth preserving.
 
