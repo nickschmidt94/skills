@@ -6,7 +6,7 @@ Meaningful changes to public skill behavior, installation, and validation are re
 
 ### Added
 
-- `finish-line` selects evidence-backed recommendations across decision work, produces decision-complete handoff artifacts, and can continue verified repository delivery through one open pull request.
+- `ns-finish-line` selects evidence-backed recommendations across decision work, produces decision-complete handoff artifacts, and can continue verified repository delivery through one open pull request.
 - `ship-skill-pr` packages local skill additions or updates with complete public metadata, catalog and changelog entries, behavioral evals, validation, and a confirmed skills-repository pull request.
 - Behavioral evals cover recommendation-driven decision completion, planning-only boundaries, companion-free fallbacks, portable skill packaging, dirty-checkout preservation, and publication authority.
 - `ns-plan-review` independently red-teams completed plans, directly applies proven implementation-readiness fixes without pausing between safe amendments, and re-reviews the revised whole plan before implementation.

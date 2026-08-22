@@ -12,7 +12,7 @@ The main delivery path is:
 
 `ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
 
-- [`finish-line`](skills/finish-line/SKILL.md) autonomously selects supported recommendations and carries planning to decision-complete tickets or repository delivery to one verified open pull request.
+- [`ns-finish-line`](skills/ns-finish-line/SKILL.md) autonomously selects supported recommendations and carries planning to decision-complete tickets or repository delivery to one verified open pull request.
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
 - [`ns-plan-review`](skills/ns-plan-review/SKILL.md) independently red-teams completed plans, directly applies proven fixes, and re-reviews them before implementation.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.

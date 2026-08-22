@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finish Line"
-  short_description: "Finish decisions or delivery autonomously"
-  default_prompt: "Use $finish-line to select the recommended answers and carry this work to decision-complete tickets or an open pull request."

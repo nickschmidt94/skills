@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Use ship-skill-pr to publish my new local finish-line skill to my skills repository.",
+      "prompt": "Use ship-skill-pr to publish my new local ns-finish-line skill to my skills repository.",
       "expected_output": "Resolves the installed source and canonical target, works from fresh origin state in an isolated checkout, packages the complete portable skill, adds one catalog entry, an Unreleased changelog entry, metadata and representative evals, runs authoritative validation and review, then opens and confirms one ready pull request."
     },
     {

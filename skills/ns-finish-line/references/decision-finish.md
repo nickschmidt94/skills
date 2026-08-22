@@ -4,7 +4,7 @@ Use this branch when the requested destination is a resolved decision set, plan,
 
 ## Authority
 
-Finish Line's explicit recommendation mode replaces ordinary interview and approval pauses. It does not impersonate the user: every answer selected without the user is an **agent-selected recommendation** with its basis preserved.
+NS Finish Line's explicit recommendation mode replaces ordinary interview and approval pauses. It does not impersonate the user: every answer selected without the user is an **agent-selected recommendation** with its basis preserved.
 
 When an installed companion normally waits for the user after presenting recommendations, select the best supported recommendation and continue. When Wayfinder normally limits a session to one ticket, continue across the frontier until the requested map is decision-complete. Preserve its claim, dependency, concurrency, and single-source-of-truth rules. When `to-tickets` normally asks for breakdown approval, evaluate its own questions, apply the recommended breakdown, and publish it.
 
@@ -30,7 +30,7 @@ Work the unblocked frontier in dependency order. For each question:
 
 1. Find facts from available sources instead of manufacturing them or asking the user to retrieve them.
 2. Identify viable options and the trade-offs that affect the destination.
-3. Produce one recommended answer using the Finish Line authority order.
+3. Produce one recommended answer using the NS Finish Line authority order.
 4. Stress-test it against constraints, edge cases, glossary terms, and dependent decisions.
 5. Select it and record `Agent-selected recommendation`, its rationale, consequential assumptions, and material uncertainty in the owning artifact.
 6. Recompute the frontier, adding newly visible questions and removing invalidated ones.
@@ -62,6 +62,6 @@ Review the complete set yourself using the questions an approval round would ask
 
 Reload the published or local artifacts. Verify links, titles, states, dependencies, labels or status, and the absence of unresolved decision tickets or fog. Confirm that autonomous selections are labeled as agent-selected recommendations and that no artifact falsely attributes approval to the user.
 
-If the user's requested destination was planning only, stop here. If the request also authorized implementation, return to Finish Line and begin Delivery Finish from these artifacts.
+If the user's requested destination was planning only, stop here. If the request also authorized implementation, return to NS Finish Line and begin Delivery Finish from these artifacts.
 
 **Complete when:** the decision system itself shows the intended work decision-complete and ready for execution.
