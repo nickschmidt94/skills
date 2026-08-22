@@ -1,9 +1,9 @@
 ---
-name: ns-ship-skill-pr
+name: ship-skill-pr
 description: Package one coherent local skill addition or update into the canonical public skills repository, complete its catalog, changelog, metadata, behavioral evals, and validation, then commit, push, and open one pull request. Use only when the user has authorized publishing skill work for review; do not use for ordinary application repositories or installation-only requests.
 ---
 
-# NS Ship Skill PR
+# Ship Skill PR
 
 Publish a local skill change as a complete, reviewable skills-repository pull request.
 
