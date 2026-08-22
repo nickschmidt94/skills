@@ -19,7 +19,6 @@ The main delivery path is:
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
 - [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
 - [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
-- [`ship-skill-pr`](skills/ship-skill-pr/SKILL.md) packages coherent local skill changes with their catalog, changelog, metadata, behavioral evals, and validation before opening a skills-repository pull request.
 
 Compounding is a supporting path rather than a mandatory delivery step:
 
