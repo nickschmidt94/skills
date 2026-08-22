@@ -1,0 +1,4 @@
+interface:
+  display_name: "NS Ship Skill PR"
+  short_description: "Package skills and open a polished repository PR"
+  default_prompt: "Use $ns-ship-skill-pr to package this skill update in my skills repository and open a complete pull request."

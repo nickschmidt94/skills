@@ -12,12 +12,14 @@ The main delivery path is:
 
 `ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
 
+- [`finish-line`](skills/finish-line/SKILL.md) autonomously selects supported recommendations and carries planning to decision-complete tickets or repository delivery to one verified open pull request.
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
 - [`ns-plan-review`](skills/ns-plan-review/SKILL.md) independently red-teams completed plans, directly applies proven fixes, and re-reviews them before implementation.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
 - [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
 - [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
+- [`ns-ship-skill-pr`](skills/ns-ship-skill-pr/SKILL.md) packages coherent local skill changes with their catalog, changelog, metadata, behavioral evals, and validation before opening a skills-repository pull request.
 
 Compounding is a supporting path rather than a mandatory delivery step:
 

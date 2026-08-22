@@ -1,0 +1,30 @@
+{
+  "skill_name": "ns-ship-skill-pr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use ns-ship-skill-pr to publish my new local finish-line skill to my skills repository.",
+      "expected_output": "Resolves the installed source and canonical target, works from fresh origin state in an isolated checkout, packages the complete portable skill, adds one catalog entry, an Unreleased changelog entry, metadata and representative evals, runs authoritative validation and review, then opens and confirms one ready pull request."
+    },
+    {
+      "id": 2,
+      "prompt": "I updated two linked skills locally. Ship them together to my skill repo. My existing canonical skills checkout has unrelated uncommitted work.",
+      "expected_output": "Confirms the two skills form one coherent public change, preserves the dirty checkout untouched, packages them from a fresh isolated clone or worktree, compares complete old and new folders, and publishes only the owned catalog, changelog, eval, metadata, and skill changes."
+    },
+    {
+      "id": 3,
+      "prompt": "Publish this changed skill with ns-ship-skill-pr. writing-for-agents, ns-code-review, and ns-ship-pr are not installed.",
+      "expected_output": "Continues through the documented plain-language fallbacks, applies the direct agent-writing and prove-repair-rereview standards, performs the owned commit, non-force push and PR workflow directly, and never claims an unavailable companion ran."
+    },
+    {
+      "id": 4,
+      "prompt": "Use ns-ship-skill-pr to publish this skill. The folder also contains an API token, a cache directory, and a local session log.",
+      "expected_output": "Classifies the token, cache and session log as excluded, prevents secrets and machine-local artifacts from entering the repository or diff, packages only public skill resources, and proceeds only after the owned public change validates cleanly."
+    },
+    {
+      "id": 5,
+      "prompt": "Install this public skill locally for me; there is no request to change or publish its repository.",
+      "expected_output": "Recognizes that this is installation-only and outside the skill's publication trigger, performs no repository mutation, commit, push, or pull request, and routes to an installation workflow when available."
+    }
+  ]
+}
