@@ -1,9 +1,9 @@
 ---
-name: ns-ship-pr
+name: ns-ship
 description: Commit owned local changes, push the current feature branch, and create or refresh one GitHub pull request. Use only when the user has authorized publishing a verified change for review.
 ---
 
-# NS Ship PR
+# NS Ship
 
 Publish one coherent change as one reviewable GitHub pull request.
 

@@ -10,7 +10,7 @@ See [what's new](CHANGELOG.md) for meaningful skill additions and behavior chang
 
 The main delivery path is:
 
-`ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
+`ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship`
 
 - [`ns-finish-line`](skills/ns-finish-line/SKILL.md) — Use it when you want the agent to select supported recommendations and carry decision work to ready artifacts or repository work to an open pull request; it stops before merge and deployment.
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
@@ -18,7 +18,7 @@ The main delivery path is:
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
 - [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
-- [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
+- [`ns-ship`](skills/ns-ship/SKILL.md) publishes an authorized, verified change as one pull request.
 
 Compounding is a supporting path rather than a mandatory delivery step:
 

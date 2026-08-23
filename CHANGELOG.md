@@ -2,6 +2,12 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-08-23
+
+### Changed
+
+- [`ns-ship`](skills/ns-ship/SKILL.md) is the new shorter name for `ns-ship-pr`. Use `$ns-ship` to publish one authorized, verified change as a pull request; existing users should replace the former invocation after updating.
+
 ## 2026-08-22
 
 ### Added

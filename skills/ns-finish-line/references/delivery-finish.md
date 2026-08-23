@@ -28,7 +28,7 @@ Use specialized security, interface, browser, data, or platform skills only when
 
 ## 4. Publish One Pull Request
 
-Load and follow `$ns-ship-pr` when available. Create or reuse the correct feature branch, commit only owned work, push the live `HEAD` without force, and create or refresh one non-draft pull request against the verified base. NS Finish Line invocation supplies this publication authorization.
+Load and follow `$ns-ship` when available. Create or reuse the correct feature branch, commit only owned work, push the live `HEAD` without force, and create or refresh one non-draft pull request against the verified base. NS Finish Line invocation supplies this publication authorization.
 
 Build the title and body from the complete pushed range. Include the outcome, meaningful decisions or assumptions, verification actually run, and residual non-blocking uncertainty. Exclude secrets and unrelated local state.
 

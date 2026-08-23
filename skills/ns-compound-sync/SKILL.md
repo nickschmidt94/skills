@@ -14,7 +14,7 @@ Use four standards throughout:
 - **Conservative** — uncertainty narrows claims or marks them stale; it never invents current guidance.
 - **Complete** — every in-scope document receives an evidence-backed outcome.
 
-This skill authorizes local maintenance inside the repository's existing learning store, normally `docs/learnings/`. It may update documents and apply a visible stale marker. Consolidation, replacement, and deletion require the user's approval of the exact proposed action. Preserve source code, repository instructions, glossaries, unrelated documentation, git state, and external systems. Use `$ns-compound` to capture a new learning and `$ns-ship-pr` for publication.
+This skill authorizes local maintenance inside the repository's existing learning store, normally `docs/learnings/`. It may update documents and apply a visible stale marker. Consolidation, replacement, and deletion require the user's approval of the exact proposed action. Preserve source code, repository instructions, glossaries, unrelated documentation, git state, and external systems. Use `$ns-compound` to capture a new learning and `$ns-ship` for publication.
 
 ## 1. Scope
 

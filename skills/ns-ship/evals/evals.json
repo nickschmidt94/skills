@@ -1,0 +1,15 @@
+{
+  "skill_name": "ns-ship",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use NS Ship to publish my verified local change for review.",
+      "expected_output": "Invokes the renamed ns-ship workflow, commits only the owned change when needed, pushes the live feature branch without force, opens or refreshes one ready pull request, and confirms that its head matches local HEAD."
+    },
+    {
+      "id": 2,
+      "prompt": "Use ns-ship to open the PR, but do not merge or deploy it.",
+      "expected_output": "Publishes one verified change through a confirmed open pull request, preserves excluded local work, and stops without merging, deploying, monitoring, or rewriting published history."
+    }
+  ]
+}
