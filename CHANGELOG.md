@@ -2,6 +2,12 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-08-30
+
+### Added
+
+- [`mvp-it`](skills/mvp-it/SKILL.md) helps choose the smallest evidence-backed commercial direction for an idea or existing product. Use its launch-scoping, review, brainstorming, and keep-pivot-retire-sell modes when product decisions need explicit evidence and authority boundaries.
+
 ## 2026-08-22
 
 ### Added

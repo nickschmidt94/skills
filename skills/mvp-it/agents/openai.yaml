@@ -1,0 +1,6 @@
+interface:
+  display_name: "MVP It"
+  short_description: "Reduce products to evidence-backed sellable scope"
+  default_prompt: "Use $mvp-it to find the smallest responsible sellable version of this product."
+policy:
+  allow_implicit_invocation: true
