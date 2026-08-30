@@ -30,6 +30,66 @@
       "id": 6,
       "prompt": "I installed only ns-compound, so writing-for-agents and skill-retrospective are unavailable. The skill we just used repeatedly stopped before its required live check, and I corrected it twice. Compound that learning.",
       "expected_output": "Continues without blocking on either missing companion, reports their absence, reconstructs and classifies the run evidence, applies the direct Lean and validation standards, and makes the smallest targeted improvement when the evidence passes the gate."
+    },
+    {
+      "id": 7,
+      "prompt": "We settled that Workspace and Member are distinct canonical domain terms. Compound that learning.",
+      "expected_output": "Classifies the learning as wrong home, resolves the repository's established terminology owner, uses CONTEXT.md only when repository evidence establishes it, and does not mutate the glossary, repository learning store, or a skill."
+    },
+    {
+      "id": 8,
+      "prompt": "We selected an event log over direct updates after a hard-to-reverse trade-off that will surprise future maintainers. Compound it.",
+      "expected_output": "Classifies the decision as wrong home, resolves the repository's established decision-record owner such as an ADR, RFC, design document, or decision log, and does not create repository learning or mutate that owner under ns-compound authority."
+    },
+    {
+      "id": 9,
+      "prompt": "Three reviews repeated the same costly judgment mistake. It cannot be detected reliably by tooling, and CODING_STANDARDS.md has no related rule. Compound it for this repository.",
+      "expected_output": "Passes the Value gate, selects Repository standard, searches for overlap, and prepares exactly one mechanism-rich rule. If this is the first standards file or no discoverability pointer exists, presents the exact standards-file and AGENTS.md pointer proposal and waits for pointer approval without writing an undiscoverable draft; after approval, writes both and validates fresh-path discovery."
+    },
+    {
+      "id": 10,
+      "prompt": "This costly failure has a reliable AST signal and can be prevented with one focused verifier. Compound it.",
+      "expected_output": "Selects wrong home, names the focused executable verifier as the exact owner, makes no prose-policy or source-code mutation, and preserves the single-destination boundary."
+    },
+    {
+      "id": 11,
+      "prompt": "The investigation produced valuable repository-specific debugging evidence, but no future implementation rule. Compound it.",
+      "expected_output": "Selects Repository learning, preserves the evidence-rich mechanism and retrieval trigger, and does not also create an active standard."
+    },
+    {
+      "id": 12,
+      "prompt": "The same standards-review workflow defect affected three unrelated repositories. Compound it.",
+      "expected_output": "Selects one reusable Skill improvement as the upstream destination rather than adding the same repository rule repeatedly."
+    },
+    {
+      "id": 13,
+      "prompt": "Promote this judgment rule, but an equivalent CODING_STANDARDS rule already exists under another ID.",
+      "expected_output": "Finds the duplicate before mutation, reports Decision: standard updated when evidence justifies sharpening the existing rule or no capture otherwise, and never creates a second equivalent rule."
+    },
+    {
+      "id": 14,
+      "prompt": "A one-off code-review preference had no demonstrated consequence. Compound it into the standards file.",
+      "expected_output": "Fails the Value gate, reports no capture, and does not add a preference-only repository standard despite the requested destination."
+    },
+    {
+      "id": 15,
+      "prompt": "We settled a canonical domain term, but this repository keeps terminology in docs/domain-glossary.md and has no CONTEXT.md.",
+      "expected_output": "Classifies the term as wrong home, resolves docs/domain-glossary.md as the established terminology owner, does not invent or require CONTEXT.md, and leaves the glossary unchanged under ns-compound authority."
+    },
+    {
+      "id": 16,
+      "prompt": "This run reproduced and clarified a repository failure already documented in docs/learnings/cache-drift.md. Compound the stronger evidence into that learning.",
+      "expected_output": "Passes the Value gate only when the new evidence changes future behavior, updates the existing learning rather than creating a duplicate, and reports Decision: learning updated with the exact path and validation."
+    },
+    {
+      "id": 17,
+      "prompt": "This repository records architecture decisions in docs/rfcs/ and has no ADR directory. We selected an event log after a hard-to-reverse trade-off. Compound it.",
+      "expected_output": "Classifies the decision as wrong home, resolves docs/rfcs/ as the established decision-record owner, does not invent an ADR convention, and leaves the RFC corpus unchanged under ns-compound authority."
+    },
+    {
+      "id": 18,
+      "prompt": "This repository has no standards file or AGENTS.md pointer. The proposed judgment rule passes the Value gate, but I decline the discoverability-pointer change.",
+      "expected_output": "Reports needs user input, leaves both the proposed standards file and AGENTS.md unchanged, and does not create an undiscoverable standards draft."
     }
   ]
 }

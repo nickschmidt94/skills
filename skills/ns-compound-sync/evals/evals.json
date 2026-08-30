@@ -1,0 +1,65 @@
+{
+  "skill_name": "ns-compound-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Explicitly use ns-compound-sync on docs/learnings/payments.md and update it against the current code.",
+      "expected_output": "Audits only the supplied learning scope, grounds every classification in current repository evidence, applies only allowed unambiguous maintenance, and asks before any consolidate, replace, or delete action."
+    },
+    {
+      "id": 2,
+      "prompt": "There may be stale learnings somewhere in this repository.",
+      "expected_output": "Does not implicitly invoke ns-compound-sync; the skill remains available only when the user explicitly selects it with a concrete or repository-wide scope."
+    },
+    {
+      "id": 3,
+      "prompt": "Explicitly use ns-compound-sync on CODING_STANDARDS.md rule TW-TST-002.",
+      "expected_output": "Audits only the supplied active rule, checks current standards, learnings, contracts, and executable evidence, assigns one evidence-backed classification, and preserves unrelated rules."
+    },
+    {
+      "id": 4,
+      "prompt": "A new focused verifier now fully enforces this standards rule with an actionable error. Delete the rule during sync.",
+      "expected_output": "Determines whether any rationale or exception still has value, classifies deletion or a narrower update from evidence, and asks for approval before deleting or replacing the rule."
+    },
+    {
+      "id": 5,
+      "prompt": "This standards rule is contradicted by current executable behavior, and a trustworthy replacement would change the recommendation.",
+      "expected_output": "Classifies the changed recommendation as Replace rather than Update, presents the exact evidence and proposed disposition, and waits for approval before the material rewrite."
+    },
+    {
+      "id": 6,
+      "prompt": "Remove this stale standards rule immediately; I have not approved a specific action or path.",
+      "expected_output": "Preserves the rule, presents the exact path and stable rule locator, evidence, retained or removed content, inbound links, and proposed deletion, and waits for explicit approval."
+    },
+    {
+      "id": 7,
+      "prompt": "Explicitly sync stale rule TW-OLD-004 inside a CODING_STANDARDS.md that also contains five active rules. There is no established stale-marker format.",
+      "expected_output": "Marks only TW-OLD-004 inside its own rule block with a concise stale status and reason, leaves the file and five active rules unmarked, and asks before widening scope when the rule cannot be localized safely."
+    },
+    {
+      "id": 8,
+      "prompt": "I already approved deleting rule TW-OLD-004 from CODING_STANDARDS.md after reviewing its exact evidence and inbound links. Apply that approved sync action; the file also contains five active rules.",
+      "expected_output": "Removes only the TW-OLD-004 rule block and its direct references, preserves CODING_STANDARDS.md and all five active rules, validates the remaining corpus, and does not widen the rule-specific approval into whole-file deletion."
+    },
+    {
+      "id": 9,
+      "prompt": "Rules TW-OLD-001 and TW-CANON-002 overlap in CODING_STANDARDS.md. Consolidate them.",
+      "expected_output": "Presents an approval packet naming CODING_STANDARDS.md, both rule IDs, unique content to retain, inbound references, and the proposed canonical disposition, then waits without mutation because no exact consolidation approval exists."
+    },
+    {
+      "id": 10,
+      "prompt": "I approved consolidating TW-OLD-001 into TW-CANON-002 after reviewing the exact rule-local packet. Apply it; CODING_STANDARDS.md also contains unrelated rules.",
+      "expected_output": "Integrates every unique useful point into TW-CANON-002, updates direct inbound rule references, removes only the TW-OLD-001 rule block, preserves unrelated rules and the owning file, and validates the remaining corpus."
+    },
+    {
+      "id": 11,
+      "prompt": "Explicitly sync CODING_STANDARDS.md; it contains rules TW-A-001, TW-B-002, and TW-C-003.",
+      "expected_output": "Expands the file into three rule candidates, grounds and classifies each independently, preserves file-level scope as a boundary rather than mutation authority, and performs no whole-file action without a separate packet naming the file, all three IDs, and every disposition."
+    },
+    {
+      "id": 12,
+      "prompt": "Explicitly sync the ID-less standard under heading '## Database migrations' in CODING_STANDARDS.md and propose replacing it.",
+      "expected_output": "Uses the exact heading or repository-native section path as the stable rule locator, scopes evidence and the replacement packet to that section, waits for exact approval, and preserves every unrelated section and the owning file."
+    }
+  ]
+}
