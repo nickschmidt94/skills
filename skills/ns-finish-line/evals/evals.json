@@ -1,0 +1,30 @@
+{
+  "skill_name": "ns-finish-line",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use ns-finish-line on this Wayfinder map. Take every recommended answer and get the decision tickets complete without asking me each round.",
+      "expected_output": "Routes to Decision Finish, validates and selects a supported recommendation for every frontier question, records each autonomous choice as an agent-selected recommendation rather than a user answer, resolves all in-scope decision tickets and fog, and leaves the requested handoff artifacts ready without pausing for ordinary approval."
+    },
+    {
+      "id": 2,
+      "prompt": "Use ns-finish-line to resolve this design interview and create ready implementation tickets. Wayfinder, grilling, and to-tickets are not installed.",
+      "expected_output": "Uses the self-contained decision fallback, builds and resolves the dependency-ordered decision frontier, produces outcome-focused recommendations, and creates vertical implementation tickets with acceptance criteria and explicit blockers without claiming an unavailable companion ran."
+    },
+    {
+      "id": 3,
+      "prompt": "Use ns-finish-line to settle the decisions and write the plan only. Do not implement it.",
+      "expected_output": "Completes only Decision Finish, records the selected recommendations and durable plan, verifies that no decision prerequisite remains, and stops before source edits, commits, pushes, or a pull request."
+    },
+    {
+      "id": 4,
+      "prompt": "Use ns-finish-line to take this repository change all the way through review to a PR for me.",
+      "expected_output": "Resolves any remaining decisions, implements and verifies only the owned change, repairs proven review findings until clean, commits and pushes without force, and finishes only after confirming one open non-draft pull request whose head matches local HEAD."
+    },
+    {
+      "id": 5,
+      "prompt": "Use ns-finish-line on this irreversible migration decision. The two viable options produce materially different products and there is no evidence favoring either one.",
+      "expected_output": "Exhausts safe evidence and reversible alternatives, then reports a hard blocker with the exact unresolved decision and smallest input needed instead of inventing a recommendation or falsely claiming decision completion."
+    }
+  ]
+}

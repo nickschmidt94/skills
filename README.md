@@ -2,20 +2,22 @@
 
 Reusable Codex skills by Nick Schmidt.
 
-The collection separates planning, local implementation, simplification, read-only review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
+The collection separates planning, plan review, local implementation, simplification, closed-loop code review, publication, and durable learning into bounded workflows. Each skill grants only the authority described in its instructions.
 
-See the [changelog](CHANGELOG.md) for meaningful skill improvements and additions.
+See [what's new](CHANGELOG.md) for meaningful skill additions and behavior changes.
 
 ## Engineering workflow
 
 The main delivery path is:
 
-`ns-plan → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
+`ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
 
+- [`ns-finish-line`](skills/ns-finish-line/SKILL.md) — Use it when you want the agent to select supported recommendations and carry decision work to ready artifacts or repository work to an open pull request; it stops before merge and deployment.
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans and stops before implementation.
+- [`ns-plan-review`](skills/ns-plan-review/SKILL.md) independently red-teams completed plans, directly applies proven fixes, and re-reviews them before implementation.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work and leaves a locally verified working tree.
 - [`ns-simplify`](skills/ns-simplify/SKILL.md) reduces structural cost without changing observable behavior.
-- [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk without modifying the change.
+- [`ns-code-review`](skills/ns-code-review/SKILL.md) reviews introduced defects and regression risk, repairs proven local findings, and independently re-reviews until clean or blocked. An explicit report-only mode preserves read-only review when requested.
 - [`ns-ship-pr`](skills/ns-ship-pr/SKILL.md) publishes an authorized, verified change as one pull request.
 
 Compounding is a supporting path rather than a mandatory delivery step:
@@ -26,7 +28,7 @@ Compounding is a supporting path rather than a mandatory delivery step:
 
 ## Product decisions
 
-- [`mvp-it`](skills/mvp-it/SKILL.md) reduces an idea or existing product to its smallest evidence-backed sellable form, with separate modes for shipping, reviewing, brainstorming, and deciding whether to keep, pivot, retire, or sell.
+- [`mvp-it`](skills/mvp-it/SKILL.md) helps choose the smallest evidence-backed commercial direction for an idea or existing product, with separate modes for launch scoping, review, brainstorming, and deciding whether to keep, pivot, retire, or sell.
 
 ## Domain audits
 

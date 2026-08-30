@@ -61,7 +61,7 @@ Read and follow [references/repository-learning.md](references/repository-learni
 
 ### Skill improvement
 
-Resolve the exact target skill from the request and current run. Before judging or editing it, read `$writing-for-agents` completely, including its skill-mechanics reference, then follow `$skill-retrospective` when available. If the retrospective skill is unavailable, apply its equivalent loop directly: reconstruct the run evidence, classify the lesson, pass the improvement gate, make the smallest targeted edit, and validate the complete changed surface.
+Resolve the exact target skill from the request and current run. Before judging or editing it, use `$writing-for-agents` when available, including its skill-mechanics reference. When it is unavailable, continue with the direct Lean and validation standards below and report the missing companion in validation. Then follow `$skill-retrospective` when available. If the retrospective skill is unavailable, apply its equivalent loop directly: reconstruct the run evidence, classify the lesson, pass the improvement gate, make the smallest targeted edit, and validate the complete changed surface.
 
 Use the **Lean test** while applying that workflow:
 

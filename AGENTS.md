@@ -12,7 +12,7 @@ This repository publishes independently installable agent skills. Keep the colle
 
 ## Catalog and invocation
 
-- List every public skill exactly once in the top-level `README.md` and link its name directly to `skills/<skill-name>/SKILL.md`.
+- List every public skill exactly once in the top-level `README.md`, link its name directly to `skills/<skill-name>/SKILL.md`, and describe in one sentence when to use it and what it enables.
 - Keep the README's invocation description synchronized with `policy.allow_implicit_invocation` in `agents/openai.yaml`.
 - Treat cross-skill references as optional routing suggestions because users may install skills individually. If the companion is unavailable, explain the equivalent next step in plain language.
 - Never let skill invocation broaden the authority granted by the user or the selected skill.
@@ -20,7 +20,9 @@ This repository publishes independently installable agent skills. Keep the colle
 ## Changes
 
 - Preserve unrelated user changes and follow the nearest applicable repository instructions.
-- Update `CHANGELOG.md` under `Unreleased` when a public skill is added, removed, renamed, or behaviorally changed. Omit typo-only, formatting-only, and invisible maintenance changes unless they alter installation, validation, or use.
+- Treat merge to `main` as publication because users install skills directly from that branch. Record public additions, removals, renames, and behavioral changes under a dated `## YYYY-MM-DD` changelog section, newest first, using Added, Changed, or Removed; do not create an `Unreleased` stage or later release-conversion step. Omit typo-only, formatting-only, and invisible maintenance changes unless they alter installation, validation, or use.
+- Keep README and changelog prose reader-facing: link the affected skill and explain what users can do, when it matters, why the change helps when non-obvious, and any meaningful boundary or migration. Keep validator output, eval counts, metadata synchronization, SHAs, packaging steps, and generic green-check claims in CI or a collapsed pull-request maintainer section.
+- Lead pull requests with why the change exists, what users get, how to use it, and meaningful boundaries. Put useful technical proof at the bottom under `<details><summary>Maintainer checks</summary>` and omit evidence already communicated by authoritative CI.
 - When renaming a skill, update its directory, frontmatter, agent metadata, README entry, cross-skill references, evals, and installed-source documentation together.
 - Keep `SKILL.md` focused on operative instructions. Do not add auxiliary setup guides or duplicate detailed reference material in the skill body.
 - Install `requirements-dev.txt`, then run `python3 scripts/validate_skills.py` before considering a repository change complete.

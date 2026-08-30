@@ -1,6 +1,6 @@
 ---
 name: mvp-it
-description: Make a small software product shippable by reducing it to the smallest evidence-backed sellable version. Use for MVP scoping, solo-product review, grounded brainstorming, or keep-pivot-retire-sell decisions.
+description: Use for MVP scoping, solo-product review, grounded product brainstorming, or keep-pivot-retire-sell decisions when a small product needs an evidence-backed commercial direction. Do not use to execute a launch, retirement, sale, or other consequential product action.
 ---
 
 # MVP It
@@ -30,7 +30,7 @@ When requests overlap, choose the mode matching the requested decision rather th
 
 ## 2. Establish the evidence floor
 
-Use the user's topic, conversation, applicable project guidance, and current artifacts. Consult Codex memory only when prior products, audience, or portfolio relationships could change the answer; verify drift-prone facts against current sources when practical.
+Use the user's topic, conversation, applicable project guidance, and current artifacts. When an agent memory source is available, consult it only when prior products, audience, or portfolio relationships could change the answer; otherwise continue from the conversation and current artifacts without blocking. Verify drift-prone facts against current sources when practical.
 
 Classify material inputs as:
 

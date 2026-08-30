@@ -1,6 +1,6 @@
 interface:
   display_name: "NS Code Review"
-  short_description: "Evidence-backed review of code changes"
-  default_prompt: "Use $ns-code-review to review the current change for introduced defects and regression risk."
+  short_description: "Review, repair, and re-review code changes"
+  default_prompt: "Use $ns-code-review to review the current change, repair proven findings locally, and independently re-review until clean or blocked."
 policy:
   allow_implicit_invocation: true
