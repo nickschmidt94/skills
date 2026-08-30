@@ -2,6 +2,13 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-08-30
+
+### Changed
+
+- [`ns-compound`](skills/ns-compound/SKILL.md) can now route one qualified outcome to an active repository standard, an evidence-rich repository learning, or a reusable skill improvement while identifying the proper owners for canonical terms, architectural decisions, and mechanically detectable failures without mutating them.
+- [`ns-compound-sync`](skills/ns-compound-sync/SKILL.md) now audits both active standards and repository learnings, distinguishes guidance still owned by human judgment from behavior fully enforced by tooling, and preserves approval gates for consolidation, replacement, and deletion.
+
 ## 2026-08-22
 
 ### Added

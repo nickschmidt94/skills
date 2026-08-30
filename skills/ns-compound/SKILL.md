@@ -1,6 +1,6 @@
 ---
 name: ns-compound
-description: "Assess completed work for a durable learning worth preserving, then either capture one repository learning or improve one reusable skill. Invoke explicitly after a task when the user wants a compounding judgment; no capture is a valid outcome."
+description: "Invoke explicitly after a completed task when the user wants a compounding judgment about whether one durable repository standard, repository learning, or reusable skill improvement is worth preserving. No capture is a valid outcome. Do not use for source-code changes, memory updates, or publication."
 disable-model-invocation: true
 ---
 
@@ -15,7 +15,7 @@ Use four standards throughout:
 - **Placed** — stored where a future agent will encounter it at the decision point.
 - **Lean** — the change replaces, sharpens, or removes weak guidance before adding more.
 
-Invoking this skill authorizes one local capture only after qualification: one repository learning document, or one targeted improvement to one user-owned or workspace skill. It does not authorize source-code changes, memory updates, unrelated documentation edits, git publication, or external actions. Preserve pre-existing changes.
+Invoking this skill authorizes one local capture only after qualification: one active repository standard, one repository learning document, or one targeted improvement to one user-owned or workspace skill. It does not authorize source-code changes, memory updates, unrelated documentation edits, git publication, or external actions. Preserve pre-existing changes.
 
 ## 1. Assess
 
@@ -45,15 +45,24 @@ The burden of proof is on capture. A one-off outage, transient state, vague pref
 
 Choose exactly one primary home:
 
+- **Repository standard** — an evidence-backed judgment rule should constrain future implementation, test design, or review throughout this repository, but the failure is not fully mechanically detectable.
 - **Repository learning** — the truth is specific to a codebase: a solved engineering problem, settled technical decision, proven repository pattern, or non-obvious operational constraint.
 - **Skill improvement** — the run exposed a durable issue in a skill's trigger, instruction, sequence, completion criterion, reference, or script that could affect future uses across tasks or repositories.
-- **Wrong home** — the needed change belongs in product code, ordinary documentation, an automation, a user preference store, memory, an upstream package, or another system outside this skill's authority.
+- **Wrong home** — the needed change belongs in product code, ordinary documentation, the active domain glossary, an ADR, an automation, a user preference store, memory, an upstream package, or another system outside this skill's authority.
+
+Route a canonical domain term or relationship to the repository's established terminology owner, such as a glossary, domain model, or context file. Use `CONTEXT-MAP.md` and `CONTEXT.md` only when repository evidence establishes that convention. Route a hard-to-reverse, surprising choice produced by a real trade-off to the repository's established decision-record owner, such as an ADR, RFC, design document, or decision log; use an ADR only when repository evidence establishes that convention. When no terminology or decision-record owner exists, identify the missing ordinary documentation destination without creating it under this skill. Identify each destination without mutating it under this skill.
+
+Route a reliably detectable failure to **Wrong home** with the exact executable owner—verifier, lint rule, type, schema, or test—and do not mutate source code under this skill. Keep standards and learnings distinct: the standard is the compact active rule; an evidence-rich learning is justified only when its investigation or decision context has separate retrieval value. One invocation never writes both.
 
 Prefer the skill branch only when changing the skill would have changed the run. Prefer the repository branch when the lesson would be wrong or noisy outside that repository. If both could benefit, select the upstream cause that prevents recurrence; capture the other only in a separate invocation. Ask the user only when the destinations are equally plausible and would produce materially different changes.
 
-**Complete when:** the learning has one justified destination and no second mutation is bundled into the run.
+**Complete when:** the qualified outcome has one justified destination and no second mutation is bundled into the run.
 
 ## 3. Compound
+
+### Repository standard
+
+Read and follow [references/repository-standard.md](references/repository-standard.md). Load it only for this branch.
 
 ### Repository learning
 
@@ -80,7 +89,7 @@ Validate the edited skill with the active skill validator when available. Re-rea
 
 Report:
 
-- `Decision: captured | updated | no capture | wrong home | needs user input`;
+- `Decision: standard captured | standard updated | learning captured | learning updated | skill updated | no capture | wrong home | needs user input`;
 - the qualified learning, or the first Value-gate condition that failed;
 - the selected destination and exact changed path, or why nothing changed;
 - evidence and validation actually used; and
