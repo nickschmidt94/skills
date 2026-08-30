@@ -2,6 +2,16 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-08-30
+
+### Changed
+
+- [`ns-plan`](skills/ns-plan/SKILL.md) and [`ns-plan-review`](skills/ns-plan-review/SKILL.md) now make ownership, context placement, commit boundaries, and real proof explicit, reserve independent Red-team review for plans with exposed high-risk boundaries, and surface reusable planner rules when a proven gap should be prevented upstream.
+- [`ns-work`](skills/ns-work/SKILL.md) now uses caller-visible seams, independent test oracles, comment integrity, and explicit simplification handoffs to keep implementation focused on observable behavior.
+- [`ns-simplify`](skills/ns-simplify/SKILL.md) now tests concrete ownership, locality, interface, and test-surface costs before changing a verified implementation.
+- [`ns-code-review`](skills/ns-code-review/SKILL.md) now reports correctness, repository standards, and accepted requirements separately, always preserves separate axis passes, and uses independent reviewers when available before a clean verdict.
+- [`ns-finish-line`](skills/ns-finish-line/SKILL.md) is now explicit-only and requires a direct simplification check before repository work advances to review and publication.
+
 ## 2026-08-22
 
 ### Added

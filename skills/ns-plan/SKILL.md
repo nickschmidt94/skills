@@ -7,13 +7,14 @@ description: Create or revise a grounded, decision-complete plan for multi-step 
 
 Produce a plan an implementer can execute without redesigning the solution.
 
-Use three standards throughout:
+Use four standards throughout:
 
 - **Grounded** — each load-bearing claim comes from current evidence, a settled user decision, or a visible assumption.
 - **Decision-complete** — resolve choices that would otherwise force the implementer to redesign the work.
 - **Observable** — express completion as behavior or state someone can verify.
+- **Legible** — make ownership, context, contracts, and canonical verification discoverable without conversation history.
 
-This skill authorizes read-only research and creation or revision of the plan artifact. Stop after delivering the reviewed plan. Implementation, commits, pushes, deployments, publication, and external messages require a separate user request.
+This skill authorizes read-only research and creation or revision of the plan artifact. Stop after delivering the completed plan. Implementation, commits, pushes, deployments, publication, and external messages require a separate user request.
 
 ## 1. Frame
 
@@ -32,7 +33,7 @@ Inspect the smallest current source set that can support the plan:
 - applicable repository instructions and named sources;
 - current implementation, tests, configuration, and documentation around the affected surface;
 - repository status and existing user changes when they constrain sequencing;
-- history or external primary documentation only when a decision depends on it.
+- history or external primary documentation only when a decision depends on it; for load-bearing third-party library or API behavior, use `$firecrawl-developer-index` when available, with official documentation or repository sources as the fallback.
 
 Prefer the environment over cached prose for discoverable facts such as scripts, versions, paths, and configuration. Honor decisions already settled in the conversation; reopen one only when current evidence shows it cannot work.
 
@@ -50,9 +51,13 @@ Separate product choices from implementation choices. Preserve requested behavio
 
 Record rationale where a credible alternative would lead to materially different work. Keep useful adjacent improvements outside active scope under follow-up work.
 
+**Builder quality:** For cross-cutting, architectural, agent-facing, or domain-bearing work, read [Builder Quality](references/builder-quality.md) and resolve every exposed ownership, context, interface, and proof question before structuring the plan.
+
+**Commit boundary:** When work introduces a durable or external effect whose commit, recovery, concurrency, or projection stages can diverge—such as an external write, access change, publication or invalidation, or mutation that can race—read [Commit Contracts](references/commit-contracts.md) and resolve every exposed boundary before structuring the plan.
+
 Defer details that genuinely depend on execution, such as exact helper names or behavior revealed only by a failing runtime check. Surface an unresolved item as a blocker when either possible answer would materially change the plan.
 
-**Complete when:** the implementer can follow the chosen approach without inventing architecture, changing product scope, or selecting between consequential alternatives.
+**Complete when:** the implementer can follow the chosen approach without inventing architecture, changing product scope, or selecting between consequential alternatives, and every exposed Builder-quality or commit boundary satisfies its referenced completion check.
 
 ## 4. Structure
 
@@ -104,6 +109,7 @@ Audit the complete plan against these questions:
 - Is every load-bearing statement grounded, settled, or assumed?
 - Can each unit be completed without redesigning another unit?
 - Does verification cover happy paths and the material edge, failure, integration, and real-app cases?
+- Does every architecture or cleanliness claim identify a concrete ownership, locality, interface, context, or verification cost?
 - Are unrelated cleanup and speculative features outside active scope?
 - Do scope, decisions, units, risks, and completion criteria agree?
 

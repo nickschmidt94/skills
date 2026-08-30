@@ -1,0 +1,35 @@
+{
+  "skill_name": "ns-plan-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Harden this completed plan for a reversible local prototype with no customer data or external writes.",
+      "expected_output": "Selects Builder posture, reviews the whole plan directly, applies only consequence-backed amendments, performs a final whole-plan consistency pass, and does not add an independent Red-team pass or high-risk ceremony."
+    },
+    {
+      "id": 2,
+      "prompt": "Red-team this completed migration plan. It changes customer data and can time out after the external provider commits.",
+      "expected_output": "Selects Red-team posture, uses a blind independent packet when available, applies the full failure, authority, concurrency, compatibility, recovery, and proof lenses to the exposed boundary, hardens proven gaps, and freshly re-reviews the revised whole plan."
+    },
+    {
+      "id": 3,
+      "prompt": "Review this completed plan in report-only mode. Do not edit it.",
+      "expected_output": "Resolves the proportional posture but preserves the plan unchanged, reports only proven findings and exact amendments, and returns a valid verdict without implementing the product work."
+    },
+    {
+      "id": 4,
+      "prompt": "Harden this ordinary plan. The architecture is not my preferred style, but it has one clear owner, a small interface, and direct verification.",
+      "expected_output": "Rejects preference-only architecture criticism, does not manufacture findings, and can return Ready for implementation with no amendments when no concrete outcome, ownership, locality, context, or proof cost is present."
+    },
+    {
+      "id": 5,
+      "prompt": "Red-team this customer-data migration plan, but independent delegation is unavailable.",
+      "expected_output": "Selects Red-team posture, performs the blind-packet risk lenses directly, discloses the non-independent fallback, hardens only proven plan gaps, and completes a fresh whole-plan rereview without treating missing delegation alone as a blocker."
+    },
+    {
+      "id": 6,
+      "prompt": "Harden this completed webhook plan. It has no retry or acknowledgement-unknown behavior, and this same omission could affect future external-write plans.",
+      "expected_output": "Applies the decision-complete retry and reconciliation amendment, classifies the finding as Upstream candidate: Yes, emits a concise reusable planner rule that would expose the omission earlier, and freshly re-reviews the complete revised plan."
+    }
+  ]
+}

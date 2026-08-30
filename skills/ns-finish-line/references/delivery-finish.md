@@ -18,7 +18,21 @@ Preserve the existing checkout. Prefer an isolated branch or worktree when it cl
 
 **Complete when:** every requested outcome is implemented, owned failures are repaired, relevant local verification is green, and the complete diff contains only intended work.
 
-## 3. Close the Review Loop
+## 3. Simplify When the Diff Earns It
+
+Inspect the verified diff for a concrete complexity signal:
+
+- newly duplicated policy or computation;
+- a new module, interface, adapter, or seam whose depth is uncertain;
+- behavior scattered across multiple owners;
+- deep or duplicated branching; or
+- transitional compatibility or scaffolding inside an unshipped change.
+
+When a signal exists, load and follow `$ns-simplify` when available. Otherwise apply its bounded behavior-preserving equivalent directly: name the concrete cost, edit only the owned change and necessary seams, prove equivalence, and accept a verified no-op when no worthwhile edit survives. When no signal exists, record that simplification was not needed and continue.
+
+**Complete when:** the diff has either received a verified bounded simplification pass or has no concrete signal requiring one, and the final implementation remains green.
+
+## 4. Close the Review Loop
 
 Load and follow `$ns-code-review` in repair mode when available. Review against the intended base, repair every proven decision-complete finding, rerun proportional verification, and review the complete updated change again. Continue until no actionable finding remains.
 
@@ -26,7 +40,7 @@ Use specialized security, interface, browser, data, or platform skills only when
 
 **Complete when:** a fresh final review finds no actionable finding and no owned verification failure remains.
 
-## 4. Publish One Pull Request
+## 5. Publish One Pull Request
 
 Load and follow `$ns-ship-pr` when available. Create or reuse the correct feature branch, commit only owned work, push the live `HEAD` without force, and create or refresh one non-draft pull request against the verified base. NS Finish Line invocation supplies this publication authorization.
 

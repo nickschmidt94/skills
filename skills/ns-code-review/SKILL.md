@@ -1,6 +1,6 @@
 ---
 name: ns-code-review
-description: Review a local change, branch, commit range, or pull request for introduced defects and regression risk, repair proven local findings, and independently re-review until clean or blocked. Use before committing, publishing, or advancing a verified change; request report-only mode when no edits are wanted.
+description: Use before committing, publishing, or advancing a local change, branch, commit range, or pull request that needs introduced-defect and regression review, repair of proven local findings, and fresh separate-axis rereview. Request report-only mode when no edits are wanted.
 ---
 
 # NS Code Review
@@ -42,11 +42,18 @@ Read the complete diff and the current sources needed to understand it:
 - nearby tests, configuration, types, schemas, and public contracts;
 - accepted requirements and relevant documentation.
 
+When the change affects domain behavior, resolve the active context through root `CONTEXT-MAP.md` when present; otherwise use the repository root. Read the active context's `CONTEXT.md` when available and compare code, tests, and public language with its canonical terms and relationships. When the change affects agent-facing instructions or context pointers, trace the pointer's trigger, target, source of truth, and canonical verification.
+
 Inspect enough surrounding code to trace changed behavior beyond the diff hunk. In remote reviews, read source from the reviewed revision. Treat repository configuration and scripts as the current source of truth instead of restating cached commands or conventions.
 
 Record the repository baseline before running verification so pre-existing and tool-generated changes remain distinguishable.
 
-**Complete when:** every changed file is accounted for, every changed behavior is understood in its runtime context, and the governing requirements and standards are known.
+Resolve two source sets independently after pinning the comparison point:
+
+- **Standards:** applicable `AGENTS.md`, root `CODING_STANDARDS.md` when present, relevant contribution rules, and focused subsystem contracts. Exclude historical audits and superseded plans.
+- **Spec:** the complete ordered set of explicitly supplied or accepted plans, issues, paths, pull-request requirements, and user requests. Follow configured issue and domain pointers when present. Later explicit user constraints override earlier artifacts; when accepted sources conflict and precedence is unclear, record `Spec: unresolved`, do not repair against either source, and return **Review incomplete** until precedence is resolved. If no source exists, record `no spec available`; do not manufacture requirements from the diff.
+
+**Complete when:** every changed file is accounted for, every changed behavior is understood in its runtime context, and the Standards and Spec sources are separately resolved or explicitly unavailable.
 
 ## 3. Inspect the Risks
 
@@ -59,14 +66,21 @@ Review correctness for every changed behavior. Apply the other lenses only when 
 - errors, retries, timeouts, background work, and partial failure;
 - concurrency, ordering, and lifecycle behavior;
 - queries, transforms, caching, and material performance cost;
-- agent-facing instructions, tools, and automation;
+- agent-facing instructions, context pointers, tools, and automation;
 - user-visible behavior and accessibility.
 
-Trace inputs, state transitions, outputs, error paths, and affected callers. Treat complexity as a finding only when the change introduces a concrete correctness, regression, testability, or repository-standards risk. Leave preference-driven cleanup to a separate simplification pass.
+Trace inputs, state transitions, outputs, error paths, and affected callers. Treat a domain contradiction or broken agent context contract as actionable only when the reviewed change introduces a concrete correctness, public-language, testability, maintainability-boundary, retrieval, or repository-standards consequence. Treat complexity as a finding under the same consequence bar. Leave preference-driven cleanup to a separate simplification pass.
 
 Establish **evidence coverage** from the shape of the change. For every material failure mode the change introduces, identify and run an authoritative check that can expose it. Behavioral tests do not substitute for structural checks such as compilation, loading, linking, parsing, schema validation, packaging, or generation when they do not exercise those paths. Choose checks by failure mode regardless of whether the changed artifacts are production code, tests, scripts, configuration, or documentation.
 
-For an explicitly requested deep or independent review, or a change that crosses a material trust boundary such as authorization, payments, persistence, destructive operations, concurrency, or a public contract, dispatch one independent in-platform reviewer with the exact scope and relevant risk lens. Give it the diff and task-local context, collect it before synthesis, and verify its findings normally. If independent review is unavailable, continue and disclose the missing coverage.
+The parent reviewer owns correctness and risk. Use available agent capacity after reading the conditional instructions: dispatch up to two independent in-platform reviewers, assigning Standards and Spec to separate reviewers when both slots are available:
+
+- [Standards review](references/standards-review.md), with the complete diff, pinned comparison point and commit list, exact Standards sources, and relevant authoritative verifier results classified as introduced, pre-existing, or unrelated;
+- [Spec review](references/spec-review.md), with the complete diff, pinned comparison point and commit list, and the complete ordered set of independently resolved Spec sources, including precedence or unresolved conflicts, or explicit absence.
+
+Tell each reviewer to perform its assigned review directly, not invoke `ns-code-review`, and not spawn another agent. Keep their evidence and results separate. When only one reviewer slot is available, delegate the axis where context independence is most valuable and run the other directly. When no slots are available, run both axes directly and sequentially. Preserve separate notes and headings and disclose which axes lacked context independence. Missing delegation does not invent a finding or make otherwise adequate evidence incomplete.
+
+For an explicitly requested deep review or a material trust boundary such as authorization, payments, persistence, destructive operations, concurrency, or a public contract, add an independent risk reviewer when capacity permits. If that extra coverage is unavailable, continue and disclose it.
 
 **Complete when:** every changed behavior and material structural failure mode has authoritative evidence or is explicitly unresolved, each material risk lens was applied or found irrelevant, and any required independent pass has returned or its absence is recorded.
 
@@ -82,6 +96,8 @@ For every candidate finding:
 6. State the smallest credible response and the remaining confidence.
 
 Discard speculative findings, stylistic preferences, and duplicates of authoritative automated output. Classify missing or unavailable verification by evidence coverage: report it as a testing gap only when the remaining evidence supports a trustworthy verdict; otherwise return **Review incomplete**. Mention a pre-existing issue separately only when it affects the reviewed change, blocks verification, or materially changes the verdict.
+
+A documented Standards breach is a hard finding only when it cites the exact repository rule ID or exact governing passage. Label uncodified smells and heuristic concerns as judgment calls, and let repository rules override the heuristic baseline. Do not duplicate lint, typecheck, compiler, or focused-verifier output; cite the authoritative tool result instead. A process-only rule such as red-green sequencing is a hard finding only when commits, traces, or supplied implementation evidence prove the breach—the final code shape cannot establish execution order.
 
 Calibrate severity:
 
@@ -106,7 +122,7 @@ Use one decision-complete remediation scope:
 2. Implement only the smallest credible responses established while proving the findings.
 3. Run focused verification for each repaired failure mode and broader checks proportional to the integrated change.
 4. Inspect the complete updated change, including untracked files, against the original comparison point.
-5. Start a fresh review of that complete change. Use a new independent in-platform reviewer when available so the fixer does not grade its own work.
+5. Start a fresh review of that complete change against the original comparison point. Repeat Correctness and every applicable Standards and Spec axis; use fresh independent in-platform reviewers when available so the fixer does not grade its own work.
 
 Repeat remediation and fresh review while new or surviving actionable findings remain. Stop and deliver the unresolved finding as a blocker when:
 
@@ -136,6 +152,14 @@ Condition and consequence. Evidence. Recommended response. Confidence: high|medi
 ```
 
 Keep each item concise while preserving the evidence needed to evaluate it. State `No actionable findings remain.` after a clean final review.
+
+Always report the three axes separately:
+
+- **Correctness:** introduced defects, regression risk, and evidence coverage from the parent review.
+- **Standards:** pass, findings with exact rule citations, or unavailable when no applicable standards source exists. Keep supported uncodified Judgment calls as separate non-blocking observations under a passing Standards axis unless Correctness or Spec independently proves a failure.
+- **Spec:** pass, fail, `no spec available`, or unresolved when accepted sources conflict without clear precedence. An unresolved Spec requires **Review incomplete** and blocks repair against either source.
+
+Do not merge or rerank the axes. The operational verdict may reflect unresolved findings across them.
 
 After the findings, report:
 

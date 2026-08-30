@@ -28,7 +28,7 @@ Apply this authority order:
 
 Repository evidence may invalidate an assumption but does not silently authorize new scope. Treat the plan as a decision artifact rather than an execution script.
 
-Confirm that the work is decision-complete. Ask the smallest focused question that can close a material gap. When substantial product framing or architectural planning remains, stop and recommend that the user invoke `$ns-plan`.
+Confirm that the work is decision-complete. Ask the smallest focused question that can close a material gap. When substantial product framing or architectural planning remains, complete a grounded, decision-complete plan first when the request authorizes planning; use `$ns-plan` when available. Otherwise stop and name the precise unresolved planning decision rather than inventing it during implementation.
 
 **Complete when:** the target workspace, in-scope outcomes, consequential boundaries, settled decisions, and observable verification are known.
 
@@ -73,17 +73,32 @@ For each task:
 5. Inspect the actual owned diff for scope and correctness.
 6. Return the affected surface to green before starting the next task.
 
+When the in-scope plan, specification, or concrete request changes domain behavior, resolve the active context through root `CONTEXT-MAP.md` when present; otherwise use the repository root. Read the active context's `CONTEXT.md` when available and implement with its accepted vocabulary and relationships. If current code or evidence materially contradicts the accepted model, return the contradiction to planning rather than choosing a new meaning during implementation.
+
+For material testable desired or changed behavior, identify before editing:
+
+- the **owning seam** through which a real caller observes the behavior; and
+- an **independent oracle** from the accepted plan, specification, stable contract, worked example, known-good literal, or immutable fixture.
+
+Proceed without interruption when current evidence establishes one seam and oracle. Ask only when competing seams imply materially different designs or no trustworthy oracle can be resolved. Do not derive the expected value by repeating the implementation formula or by calling the production implementation on both sides of the assertion.
+
+For characterization of unknown legacy behavior, captured pre-change output through the owning seam may serve as the preservation baseline even when no independent correctness oracle exists. Label it as observed behavior, not proof that the behavior is desirable or correct.
+
+When a reliable seam exists, work in vertical red-green slices: add one failing proof for a caller-visible outcome, run it to confirm the intended failure, implement the minimum response, return it to green, and then take the next slice. Refactor after green. Use `$tdd` when available; otherwise apply this loop directly. Do not force it onto documentation, packaging, generated assets, configuration-only work, characterization of unknown behavior, or behavior without a reliable automated seam.
+
 Choose evidence by change shape:
 
 - **Regression or bug:** reproduce the failure before changing behavior.
 - **Fragile legacy behavior:** establish characterization coverage first.
-- **New testable behavior:** prefer a failing proof when it accurately represents the desired contract.
+- **New testable behavior:** require a failing caller-visible proof with an independent oracle when a reliable seam exists.
 - **Configuration or packaging:** prefer a focused runtime or smoke check.
 - **User-visible interface:** exercise the real interface and relevant viewport or interaction states.
 
+Use **comment integrity** for owned changes: let names, structure, assertions, and logs express visible behavior. Reserve comments for verified reasons or constraints that code cannot express. Encode durable internal constraints in types, tests, runtime checks, or verifiers. Resolve or narrowly justify each owned lint or type suppression.
+
 Fix failures caused by the owned change. Investigate ambiguous failures until they are classified. Preserve scope when a failure is pre-existing or unrelated, and record it for delivery. Stop when authoritative verification cannot run and no in-scope remediation can restore it.
 
-**Complete when:** the task outcome is observable, focused verification is green, and the task diff contains only owned changes.
+**Complete when:** the task outcome is observable, focused verification is green, the task diff contains only owned changes, and every owned comment or suppression satisfies comment integrity.
 
 ## 5. Integrate
 
@@ -91,7 +106,8 @@ After all tasks are individually green:
 
 - inspect the complete owned diff, including untracked and generated files;
 - reconcile interactions across tasks and shared contracts;
-- simplify settled code where doing so reduces accidental complexity without changing scope;
+- remove only obvious accidental complexity introduced by the owned change when the local edit is decision-complete and covered by the current verification oracle;
+- report a non-trivial simplification signal—duplicated policy, a questionable new seam, scattered ownership, deep branching, or unshipped transitional scaffolding—as a handoff for a separately selected bounded, behavior-preserving pass; that later workflow may use `$ns-simplify` when available, but do not invoke it or expand implementation scope here;
 - run broader checks proportional to the affected surface and risk;
 - exercise the real application when behavior is user-visible or integration-dependent.
 
@@ -108,6 +124,7 @@ Report:
 - verification actually run and its result;
 - pre-existing or unrelated failures encountered;
 - remaining uncertainty or blockers;
+- any non-trivial simplification signal left for a separate bounded, behavior-preserving pass, and whether `$ns-simplify` is available for it;
 - confirmation that pre-existing work was preserved.
 
 Make completion claims only from fresh evidence gathered during this run. End with the verified working tree and leave shipping decisions to the user.

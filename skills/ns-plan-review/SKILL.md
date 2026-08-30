@@ -1,11 +1,12 @@
 ---
 name: ns-plan-review
-description: Independently red-team and directly harden a completed software, product, or operational plan for implementation readiness. Apply proven fixes to the plan and re-review until ready or blocked. Use after planning and before implementation; do not use to create the initial plan or review code changes.
+description: Proportionally review and directly harden a completed software, product, or operational plan for implementation readiness. Use Builder posture for ordinary work and Red-team posture for exposed high-risk boundaries or explicit red-team requests. Apply proven fixes and re-review until ready or blocked; do not use to create the initial plan or review code changes.
 ---
 
 # NS Plan Review
 
-Review a settled plan as a literal implementation contract. Find only defects
+Review a settled plan as a literal implementation contract. Use the lightest
+posture that covers its exposed risk. Find only defects
 that could change the outcome, cross authority, lose work, prevent verification,
 or force consequential redesign during implementation. Prove each finding,
 apply the smallest safe plan amendment without returning control between fixes,
@@ -13,8 +14,8 @@ and close the loop with a fresh whole-plan review.
 
 ## Leading Concepts
 
-- **Blind:** Preserve independence from the plan author's reasoning and favored
-  solution.
+- **Proportional:** Use direct Builder review for ordinary work and blind
+  Red-team review only for exposed high-risk boundaries.
 - **Literal:** Assume a capable implementer follows only what the plan says.
 - **Proven:** Keep findings tied to an exact plan location and authoritative
   evidence.
@@ -32,6 +33,15 @@ present.
 Use **report-only** mode when the user says `review only`, `report-only`, or
 otherwise forbids modifications. In harden mode, treat an inline plan as an
 editable deliverable and return its complete revised replacement.
+
+The default posture is **Builder** for reversible, pre-customer, local, and
+ordinary product work. Use **Red-team** when explicitly requested or when an
+exposed boundary involves customer or irreplaceable data,
+authentication/privacy/permissions/money, destructive or irreversible effects,
+migrations or compatibility cutovers, uncertain external commits,
+correctness-sensitive concurrency or distributed state, or
+publication/deployment with expensive recovery. Escalate the affected boundary,
+not unrelated plan sections.
 
 This skill may:
 
@@ -66,7 +76,8 @@ Identify:
 - the intended outcome and acceptance evidence;
 - constraints, non-goals, and authority boundaries;
 - the current mode: harden or report-only;
-- the authoritative sources needed to test the plan;
+- the current posture: Builder or Red-team, with its trigger;
+- the authoritative sources needed to test the plan; for load-bearing third-party library or API behavior, use `$firecrawl-developer-index` when available, with official documentation or repository sources as the fallback;
 - whether this agent authored or materially revised the plan.
 
 If the plan, intended outcome, or authority boundary cannot be resolved from
@@ -75,77 +86,49 @@ available context, return `Review incomplete` with the exact missing input.
 Completion check: the reviewer can state what success means, what must not
 happen, what may be edited, and which evidence governs disagreements.
 
-### 2. Establish an independent review
+### 2. Establish the review posture
 
-If the current agent authored or materially revised the plan, dispatch one
-independent in-platform reviewer when delegation is available. If the current
-context is already a fresh review packet from another agent, review it directly.
+In Builder posture, review the complete plan directly. Do not dispatch an
+independent reviewer merely because the current agent helped author the plan.
 
-Give the independent reviewer only:
+In Red-team posture, read [Red-team Review](references/red-team.md) and apply its
+blind packet, risk lenses, and independence rules. If delegation is unavailable,
+perform the same pass directly and disclose the fallback; missing delegation
+alone does not make the review incomplete.
 
-- the goal, constraints, non-goals, and authority boundary;
-- the complete plan;
-- the minimum authoritative sources needed to verify it;
-- the review prompt below.
-
-Withhold the author's reasoning, suspected problems, proposed fixes, and desired
-verdict. The reviewer is read-only and may not implement or edit the plan.
-
-Use this prompt:
-
-> Act as an implementation-readiness auditor. Assume a capable implementer will
-> follow the plan literally without access to its author's reasoning. Simulate
-> execution and report only plan defects that could cause an incorrect outcome,
-> unauthorized effect, lost work, unverifiable completion, or forced redesign.
-> For each finding, give the trigger, consequence, evidence, and smallest exact
-> amendment. Do not produce an alternative plan or preference-driven rewrite.
-
-If independent delegation is unavailable, perform the same pass directly and
-disclose that independence was not achieved. Lack of delegation alone does not
-make the review incomplete.
-
-Completion check: either an independent reviewer has received a blind packet,
-or the final report explicitly identifies the non-independent fallback.
+Completion check: the selected posture matches the plan's exposed risk, and any
+required Red-team packet or disclosed fallback is established.
 
 ### 3. Run an implementation pre-mortem
 
-Walk through the plan in execution order. Apply all core lenses and every risk
-lens exposed by the plan.
+Walk through the plan in execution order. Apply every Builder lens. In Red-team
+posture, also apply every exposed risk lens from the referenced review.
 
 #### Core lenses
 
-- **Traceability:** Every requested outcome, constraint, non-goal, and
+- **Outcome and traceability:** The smallest coherent product result is clear,
+  and every requested outcome, constraint, non-goal, and
   acceptance condition maps to a concrete plan step and verification artifact.
 - **Decision completeness:** An implementer does not need to invent a material
   product, architecture, data, security, operational, or UX decision.
 - **Executability:** Steps name the real targets, dependencies, order,
   ownership, and completion conditions needed to act safely.
+- **Depth and locality:** Meaningful behavior sits behind a small interface at a
+  real seam, with policy, change, and verification concentrated in one owner.
+- **Legibility:** A fresh human or agent can locate authority, context,
+  contracts, ownership, and canonical verification without conversation history.
+- **Context placement:** Domain terms, ADR-grade decisions, repository
+  learnings, ordinary documentation, tests, and code live in their proper homes.
 - **Evidence coverage:** Verification proves the user-visible or operational
   outcome, not merely compilation, deployment, or the existence of changed
   files.
 
-#### Risk lenses
-
-Apply each relevant lens:
-
-- failure paths, retry behavior, partial completion, recovery, rollback, and
-  idempotency;
-- concurrency, ordering, duplicate delivery, stale state, and race conditions;
-- authentication, authorization, secrets, privacy, destructive actions, and
-  external side effects;
-- persistence, migrations, schemas, contracts, compatibility, and data
-  integrity;
-- repository state, build/runtime differences, deployment gates, and real-app
-  acceptance;
-- scope pressure, unnecessary machinery, and steps that conflict with stated
-  non-goals.
-
 Do not reward verbosity. A short plan can be complete, and a long plan can still
 hide a missing decision.
 
-Completion check: each plan step has been simulated literally, every core lens
-has been applied, and every exposed risk lens has either been tested or marked
-not applicable.
+Completion check: each plan step has been simulated literally, every Builder
+lens has been applied, and every Red-team risk lens required by the selected
+posture has been tested or marked not applicable.
 
 ### 4. Prove and rank findings
 
@@ -203,18 +186,24 @@ insufficiently evidenced, authority-expanding, or genuinely choice-dependent
 findings unresolved and explain why. In report-only mode, propose amendments
 without editing.
 
+Classify every applied or unresolved finding as `Upstream candidate: Yes` when
+a reusable planning rule could have exposed the defect before the plan was
+settled; otherwise classify it as `No`. This classification explains where the
+lesson belongs and does not change severity, adjudication, or readiness.
+
 If a finding reveals a missing user decision that would materially change the
 outcome or authority, do not guess. Mark it unresolved.
 
 Completion check: every safe, decision-complete fix has been applied to the
-plan; each remaining finding is rejected with evidence or unresolved for a
-named reason; no implementation artifact has changed.
+plan; each applied or unresolved finding has an upstream classification; each
+remaining finding is rejected with evidence or unresolved for a named reason;
+no implementation artifact has changed.
 
 ### 6. Re-review the complete revised plan
 
-After any amendment, run a fresh whole-plan review. Prefer a fresh independent
-reviewer and send the revised plan as a clean packet without the earlier
-findings, defenses, or change explanations. Apply any new proven,
+After any amendment, run a fresh whole-plan consistency review without the
+earlier findings steering the pass. In Red-team posture, use the referenced
+fresh independent rereview when available. Apply any new proven,
 decision-complete findings and repeat the whole-plan review.
 
 Do not limit the second pass to edited sections. Amendments can create new
@@ -245,12 +234,13 @@ Report in this order:
 2. the updated plan artifact, or the complete revised plan when it was inline;
 3. applied changes, including exact locations and the implementation-time
    question, handoff, or recovery gap each change removed;
-4. unresolved findings, highest severity first;
-5. rejected or non-blocking observations only when they clarify a disputed
+4. upstream candidates, stated as reusable planner rules and omitted when none;
+5. unresolved findings, highest severity first;
+6. rejected or non-blocking observations only when they clarify a disputed
    point;
-6. independence used or fallback disclosed;
-7. evidence inspected and checks actually performed;
-8. the next required action.
+7. posture used, plus independence or fallback when Red-team applied;
+8. evidence inspected and checks actually performed;
+9. the next required action.
 
 If there are no findings, say so directly. Never manufacture findings to make
 the review appear valuable.
@@ -265,6 +255,7 @@ Location: Plan step or requirement ID
 Change: Exact amendment made
 Autonomy gained: Implementation-time question, handoff, or recovery gap removed
 Evidence: Authoritative source or plan contradiction
+Upstream candidate: Yes | No
 ```
 
 Use this compact structure for each unresolved or rejected finding:
@@ -278,7 +269,11 @@ Evidence: Authoritative source or plan contradiction
 Amendment: Smallest exact plan change
 Status: Unresolved | Rejected
 Confidence: High | Medium | Low
+Upstream candidate: Yes | No | N/A
 ```
+
+Use `N/A` only for a rejected observation because no proven defect remains to
+move upstream.
 
 The final output is the updated plan plus its review verdict and applied-change
 summary, not a findings report or a second competing plan.
