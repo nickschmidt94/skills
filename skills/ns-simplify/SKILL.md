@@ -33,17 +33,18 @@ Establish the intended behavior and its best available oracle: existing tests, t
 
 ## 2. Inspect
 
-Read every scoped file plus the callers, dependencies, tests, and contracts needed to prove equivalence. Inspect the code through three lenses:
+Read every scoped file plus the callers, dependencies, tests, and contracts needed to prove equivalence. Inspect the code through four lenses:
 
 - **Reuse:** replace new duplication with an existing helper, built-in, or verified platform guarantee only when its semantics match the inputs in play.
 - **Clarity:** reduce redundant state, copy-paste variation, unnecessary indirection, deeply nested control flow, leaky abstractions, stale narration, and verified dead code. Preserve named concepts and useful boundaries.
 - **Waste:** remove duplicate computation, repeated reads or calls, no-op updates, avoidable broad operations, resource leaks, and objectively redundant hot-path work.
+- **Structure:** deepen or remove an existing seam only when it reduces a concrete locality, interface, caller-knowledge, duplicated-authority, or test-surface cost. Keep boundaries that encapsulate a meaningful concept.
 
 Treat concurrency, caching-policy changes, algorithm replacements, and other timing-sensitive optimizations as implementation work unless exact equivalence is already proven. Preserve validation, authorization, data-loss protection, error handling, accessibility affordances, and other trust-boundary guards.
 
 For each candidate, identify the concrete cost removed, the proposed form, the evidence of equivalence, and the smallest affected surface. Skip preference-only rewrites and abstractions justified only by hypothetical future reuse.
 
-**Complete when:** every scoped file has received all three lenses and each retained candidate has a concrete simplification benefit, a bounded edit, and credible equivalence evidence.
+**Complete when:** every scoped file has received all four lenses and each retained candidate has a concrete simplification benefit, a bounded edit, and credible equivalence evidence.
 
 ## 3. Apply
 
@@ -81,6 +82,6 @@ Report:
 - pre-existing or unrelated failures encountered; and
 - remaining uncertainty or blockers.
 
-If no worthwhile simplification survived verification, say so and leave the code unchanged. Do not use net lines removed as the success metric. End with the locally verified working tree and leave independent review to `$ns-code-review`.
+If no worthwhile simplification survived verification, say so and leave the code unchanged. Do not use net lines removed as the success metric. End with the locally verified working tree and leave a complete-diff review against the intended base as the next step; use `$ns-code-review` when available, otherwise directly prove introduced findings, repair only decision-complete ones, rerun verification, and freshly review until clean or blocked.
 
 **Complete when:** the user can inspect or review the result without relying on earlier commentary, and every completion claim is supported by fresh evidence.

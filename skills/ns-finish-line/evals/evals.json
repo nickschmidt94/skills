@@ -19,12 +19,17 @@
     {
       "id": 4,
       "prompt": "Use ns-finish-line to take this repository change all the way through review to a PR for me.",
-      "expected_output": "Resolves any remaining decisions, implements and verifies only the owned change, repairs proven review findings until clean, commits and pushes without force, and finishes only after confirming one open non-draft pull request whose head matches local HEAD."
+      "expected_output": "Resolves any remaining decisions, implements and verifies only the owned change, runs simplification only when the diff presents a concrete complexity signal, repairs proven review findings until clean, commits and pushes without force, and finishes only after confirming one open non-draft pull request whose head matches local HEAD."
     },
     {
       "id": 5,
       "prompt": "Use ns-finish-line on this irreversible migration decision. The two viable options produce materially different products and there is no evidence favoring either one.",
       "expected_output": "Exhausts safe evidence and reversible alternatives, then reports a hard blocker with the exact unresolved decision and smallest input needed instead of inventing a recommendation or falsely claiming decision completion."
+    },
+    {
+      "id": 6,
+      "prompt": "Explicitly use ns-finish-line for this small repository change. The verified diff is direct, has one owner, and introduces no duplication, new seam, or transitional scaffolding.",
+      "expected_output": "Runs only because it was explicitly invoked, records that simplification was not needed, continues through final code review, and does not manufacture cleanup before the authorized pull request workflow."
     }
   ]
 }

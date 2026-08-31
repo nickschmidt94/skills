@@ -1,0 +1,15 @@
+{
+  "skill_name": "ns-simplify",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Simplify this verified change. Policy is duplicated across two owners and callers must know both execution orders.",
+      "expected_output": "Identifies the concrete duplicated-authority and caller-knowledge costs, applies a bounded behavior-preserving structural improvement when equivalence is provable, and verifies the complete result."
+    },
+    {
+      "id": 2,
+      "prompt": "Simplify this verified change. The code is clear and behavior is covered; I merely prefer a different naming and abstraction style.",
+      "expected_output": "Finds no consequence-backed simplification, leaves the code unchanged, reports a successful no-op, and does not use preference or line count as evidence."
+    }
+  ]
+}

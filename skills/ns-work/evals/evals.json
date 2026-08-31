@@ -1,0 +1,50 @@
+{
+  "skill_name": "ns-work",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement this approved feature plan. The active CONTEXT.md defines Workspace and Member, but one legacy helper calls both Account.",
+      "expected_output": "Consumes the accepted Workspace and Member vocabulary, surfaces a material code-versus-model contradiction to planning when it cannot be resolved within the approved plan, and does not silently redesign the domain model."
+    },
+    {
+      "id": 2,
+      "prompt": "Implement the approved change. The final diff introduces duplicated policy across two modules and a new pass-through interface.",
+      "expected_output": "Completes and verifies the approved implementation, removes only obvious locally proven accidental complexity, and reports the non-trivial duplication or seam as a bounded ns-simplify signal rather than expanding scope."
+    },
+    {
+      "id": 3,
+      "prompt": "Implement this approved price-sizing calculation. The public calculatePosition function is the only caller seam, and the plan includes a worked example with a $500 risk budget and $5 per-share risk.",
+      "expected_output": "Uses calculatePosition as the owning seam, treats the worked result as the independent oracle, proves one caller-visible failing slice before implementation, returns it to green, and continues without asking an unnecessary question."
+    },
+    {
+      "id": 4,
+      "prompt": "Implement the approved behavior, but it could live in either the report serializer or the public projection and choosing one changes the API boundary.",
+      "expected_output": "Recognizes that the two plausible seams imply materially different designs and asks one focused question instead of silently choosing a new ownership boundary."
+    },
+    {
+      "id": 5,
+      "prompt": "Add a test for calculateReturn. Build the expected value by calling calculateReturn with the same inputs and comparing the result to itself.",
+      "expected_output": "Rejects the tautological expectation, resolves an independent specification, worked example, known-good literal, or immutable fixture, and tests the material behavior through its owning seam."
+    },
+    {
+      "id": 6,
+      "prompt": "Implement a generator whose exact JSON bytes and key order are the accepted public contract.",
+      "expected_output": "Uses the accepted exact-output contract as the independent oracle, proves the generated output through the owning command or API seam, and does not dismiss a deliberate literal assertion as brittle."
+    },
+    {
+      "id": 7,
+      "prompt": "Update the approved repository documentation and package metadata only; there is no runtime behavior change.",
+      "expected_output": "Uses focused formatting, parsing, packaging, and discovery checks without manufacturing a failing behavioral test or forcing the documentation change through TDD."
+    },
+    {
+      "id": 8,
+      "prompt": "Implement this concrete request without a separate plan: rename the public domain concept from Workspace to Organization while preserving Member as a distinct identity. The repository has a CONTEXT-MAP.md.",
+      "expected_output": "Treats the concrete request as the in-scope authority, resolves the active CONTEXT.md through CONTEXT-MAP.md, uses its accepted vocabulary and relationships, and returns a material contradiction to planning rather than silently redefining the domain model."
+    },
+    {
+      "id": 9,
+      "prompt": "Refactor this undocumented legacy parser without changing its behavior. There is no accepted specification, but its current public command output can be captured before editing.",
+      "expected_output": "Captures current output through the owning seam as a characterization baseline, labels it as observed rather than independently correct behavior, preserves it through the refactor, and does not block or invent a desired-behavior oracle."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "skill_name": "ns-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan a small reversible local settings toggle. There is no customer data or external write.",
+      "expected_output": "Produces a concise implementation-ready plan with observable verification and does not add commit-contract, ADR, glossary, or architecture ceremony without an exposed boundary."
+    },
+    {
+      "id": 2,
+      "prompt": "Plan a new agent-facing module that changes where repository context lives and exposes a small public interface.",
+      "expected_output": "Names the owning module, authoritative context location, interface and test seam, concrete locality or depth cost being addressed, and canonical verification without requiring conversation history."
+    },
+    {
+      "id": 3,
+      "prompt": "Plan a stateful external write that can time out after committing and race with another mutation.",
+      "expected_output": "Resolves authority, durable commit, every reachable aggregate outcome, acknowledgement-unknown reconciliation, idempotency, the production concurrency primitive, before-and-after race behavior, projections, and authoritative proof."
+    }
+  ]
+}

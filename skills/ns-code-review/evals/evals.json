@@ -20,6 +20,86 @@
       "id": 4,
       "prompt": "Review and clean up this pull request. The same failure is still present after two attempted fixes.",
       "expected_output": "Re-proves the surviving finding, stops the remediation loop after the second failed attempt, reports the specific blocker and verification evidence, and avoids unrelated cleanup or further speculative edits."
+    },
+    {
+      "id": 5,
+      "prompt": "Review this change to a public domain API. CONTEXT.md distinguishes Workspace from Member, but the new serializer exposes both as Account.",
+      "expected_output": "Traces the active domain context through code, tests, serialization, and public language; reports and repairs the introduced contract contradiction when decision-complete; then freshly re-reviews the complete change."
+    },
+    {
+      "id": 6,
+      "prompt": "Review this agent instruction change. Its context pointer now targets a deleted file, while a naming choice merely differs from your preference.",
+      "expected_output": "Treats the broken context pointer as an introduced retrieval or execution defect, rejects the preference-only naming observation, preserves the portable local-repair fallback, and verifies the repaired complete change."
+    },
+    {
+      "id": 7,
+      "prompt": "Review a test that recomputes the implementation formula. CODING_STANDARDS.md says TW-TST-002 requires an independent oracle.",
+      "expected_output": "Reports the breach only under Standards with an exact TW-TST-002 citation, keeps Correctness and Spec separate, and proves the finding against the complete changed test."
+    },
+    {
+      "id": 8,
+      "prompt": "Review an exact literal assertion whose accepted specification explicitly names those bytes as the public contract.",
+      "expected_output": "Lets the repository's exact-contract exception override a generic brittleness heuristic and does not report a standards finding merely because the assertion is literal."
+    },
+    {
+      "id": 9,
+      "prompt": "Review this change: the accepted issue is fully satisfied, but the diff violates a documented repository rule.",
+      "expected_output": "Reports Standards as failed with the exact rule citation, Spec as pass, and Correctness separately; it does not merge the axes."
+    },
+    {
+      "id": 10,
+      "prompt": "Review this change: repository standards pass, but one explicit accepted requirement is omitted.",
+      "expected_output": "Reports Standards as pass and Spec as failed with the accepted source; repairs only when the response is locally scoped and decision-complete, then reruns every applicable axis against the original comparison point."
+    },
+    {
+      "id": 11,
+      "prompt": "ESLint already reports the introduced semicolon defect. Review the complete change.",
+      "expected_output": "Includes the classified ESLint result in the Standards packet, reports Standards: fail from the authoritative tool finding without duplicating its diagnostic as an independent Standards or Correctness candidate, and reflects the failure in the operational verdict."
+    },
+    {
+      "id": 12,
+      "prompt": "Review this change without any issue, accepted plan, pull-request requirement, or explicit specification.",
+      "expected_output": "Reports Spec: no spec available, does not invent requirements from the diff, and still performs separate Correctness and applicable Standards review."
+    },
+    {
+      "id": 13,
+      "prompt": "Run the Standards and Spec review agents for this complete diff.",
+      "expected_output": "Uses available capacity to give each delegated axis a pinned scope and exact sources, includes classified authoritative verifier results in the Standards packet, explicitly forbids invoking ns-code-review or spawning more agents, and preserves separate results for every axis."
+    },
+    {
+      "id": 14,
+      "prompt": "Review and fix this omitted requirement, but satisfying it requires choosing a new subscription product policy.",
+      "expected_output": "Proves the Spec finding, stops for the unapproved product decision instead of inventing policy, and reports Changes requested with the three axes separate."
+    },
+    {
+      "id": 15,
+      "prompt": "Review a final diff that appears to have skipped red-green sequencing, but no commits, traces, or implementation evidence are available.",
+      "expected_output": "Does not turn a process-only suspicion into a hard standards finding from final code shape alone and labels any residual concern as unproven."
+    },
+    {
+      "id": 16,
+      "prompt": "Review a changed module that introduces a pass-through layer and duplicated policy, but no repository standard prohibits either shape.",
+      "expected_output": "Uses the conditional heuristic baseline to investigate concrete drift or testability consequences, keeps Standards passing while reporting any supported concern separately as a non-blocking Judgment call, and reports nothing when no consequence can be proven."
+    },
+    {
+      "id": 17,
+      "prompt": "Review this branch against the accepted implementation plan and my later explicit requirement that the migration preserve legacy export compatibility.",
+      "expected_output": "Sends both accepted Spec sources in precedence order, treats the later explicit user requirement as binding, checks every requirement from both sources, and reports a Spec finding if legacy export compatibility is omitted."
+    },
+    {
+      "id": 18,
+      "prompt": "Review this complete change, but no independent agents are available.",
+      "expected_output": "Runs Standards and Spec directly and sequentially, preserves separate evidence and result headings, discloses the loss of context independence, and does not treat unavailable delegation alone as a finding or incomplete review."
+    },
+    {
+      "id": 19,
+      "prompt": "Review this migration against two accepted plans: one requires preserving legacy exports and the other requires removing them immediately. Neither source has precedence.",
+      "expected_output": "Returns Spec: unresolved, names the conflicting accepted requirements, does not repair against either source, and returns Review incomplete with the smallest precedence decision needed to resume."
+    },
+    {
+      "id": 20,
+      "prompt": "Review this complete change with only one independent reviewer slot available.",
+      "expected_output": "Delegates the axis where context independence is most valuable, runs the other axis directly, preserves separate Standards and Spec evidence and results, and discloses which axis lacked independent context."
     }
   ]
 }

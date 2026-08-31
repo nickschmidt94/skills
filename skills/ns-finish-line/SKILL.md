@@ -1,6 +1,7 @@
 ---
 name: ns-finish-line
 description: "Carry work autonomously to its requested terminal artifact: resolve interviews and wayfinding into decision-complete artifacts and ready tickets, or implement and verify repository work through one open pull request. Use when the user invokes NS Finish Line to accept recommended answers and continue without ordinary approval pauses; stop before implementation when the requested destination is planning only, and before merge or deployment for delivery work."
+disable-model-invocation: true
 ---
 
 # NS Finish Line
