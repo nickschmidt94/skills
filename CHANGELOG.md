@@ -6,6 +6,9 @@ Meaningful additions and behavior changes for people who install these skills ar
 
 ### Changed
 
+- [`ns-compound`](skills/ns-compound/SKILL.md) 1.0.1 can capture one repository standard as well as a learning or skill improvement, while routing terminology and architecture decisions to their established owners. Standards and learnings that need a discovery pointer wait for its approval before capture. Investigation context can still qualify when a test detects the failure but does not preserve the useful explanation.
+- Eligible local skill improvements now record their version and change history automatically through [`ns-compound`](skills/ns-compound/SKILL.md). Its helper rejects unsupported version formatting before writing; it requires flat, two-space metadata and a version without an inline comment. Compounding remains explicit-only and does not authorize publication.
+
 - [`ns-work`](skills/ns-work/SKILL.md) now allows bounded sub-agent delegation and independent tasks to proceed concurrently, while the primary agent verifies their combined result. Routine implementation choices no longer require a question, and unavailable checks pause dependent work while independent work continues; delivery distinguishes verified outcomes from incomplete evidence. Shipping still requires separate authorization.
 
 ## 2026-08-30

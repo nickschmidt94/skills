@@ -22,7 +22,7 @@ The main delivery path is:
 
 Compounding is a supporting path rather than a mandatory delivery step:
 
-- [`ns-compound`](skills/ns-compound/SKILL.md) judges whether completed work produced one learning worth preserving, then captures it in the repository or improves the skill that shaped the run.
+- [`ns-compound`](skills/ns-compound/SKILL.md) judges whether completed work earned one durable repository standard, learning, or skill improvement, and preserves it only when its future value justifies capture.
 - [`ns-compound-sync`](skills/ns-compound-sync/SKILL.md) keeps accumulated repository learnings accurate as the codebase changes.
 - [`skill-retrospective`](skills/skill-retrospective/SKILL.md) improves one skill when a completed run exposes a durable, evidence-backed lesson.
 
