@@ -33,7 +33,7 @@ Run discoverability setup only when creating a store, adopting a store that acti
 `docs/learnings/` contains verified repository learnings—solved problems, technical decisions, and proven patterns. Search it by area and tags before related planning, implementation, debugging, or review.
 ```
 
-Record the exact file, placement, and text, but leave repository instructions unchanged until the learning validates and the user explicitly approves the pointer. When no substantive instruction file exists, propose a minimal root `AGENTS.md`.
+Prepare the complete learning and exact pointer file, placement, and text as one reviewable proposal. When a discoverability pointer is needed, leave both the learning destination and repository instructions unchanged until the user explicitly approves the pointer. Existing authorization for that exact change remains sufficient. When no substantive instruction file exists, propose a minimal root `AGENTS.md`.
 
 This stage is complete when corpus search supports the create-or-update decision, the target path is known, and any setup need is one exact pending proposal.
 
@@ -74,9 +74,9 @@ Re-read the complete document against its evidence. Confirm that:
 
 Run a configured repository documentation check when one applies. Correct contradictions, narrow unsupported claims, and remove the draft when its central learning cannot be supported.
 
-After validation, show any pending instruction pointer with its exact file, placement, and text. Apply it only with specific approval, then re-read the instruction file.
+Validate a pending proposal before requesting pointer approval. If approval is unavailable or declined, report `needs user input` and leave both files unchanged. After approval, write the learning and pointer, re-read both files, and verify discovery from the repository instructions.
 
-The branch is complete when the standalone learning is findable and evidence-backed, applicable checks are green or classified, and any discoverability setup is verified or reported as an unapproved proposal.
+The branch is complete when the standalone learning is findable and evidence-backed, applicable checks are green or classified, and any required discoverability setup is verified. A proposal awaiting approval ends as `needs user input`, not a completed capture.
 
 ## Branch report
 
