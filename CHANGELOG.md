@@ -6,6 +6,8 @@ Meaningful additions and behavior changes for people who install these skills ar
 
 ### Changed
 
+- [`ns-simplify`](skills/ns-simplify/SKILL.md) 1.0.1 focuses cleanup on the selected implementation and matches regression checks to the cleanup’s risk. It permits simplifying in-scope work while protecting unrelated edits, and hands off to complete-diff review unless that review was already requested.
+
 - [`ns-work`](skills/ns-work/SKILL.md) now allows bounded sub-agent delegation and independent tasks to proceed concurrently, while the primary agent verifies their combined result. Routine implementation choices no longer require a question, and unavailable checks pause dependent work while independent work continues; delivery distinguishes verified outcomes from incomplete evidence. Shipping still requires separate authorization.
 
 ## 2026-08-30
