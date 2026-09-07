@@ -1,11 +1,13 @@
 ---
 name: ns-simplify
-description: Simplify settled, recently changed code for clarity, reuse, and lower structural cost while preserving observable behavior. Use after implementation and before independent review when the selected scope may be edited and locally verified.
+description: Use for a code cleanup pass after implementation is settled and before independent code review. Do NOT use for redesign, behavior changes, or a general codebase audit.
+metadata:
+  version: "1.0.1"
 ---
 
 # NS Simplify
 
-Improve settled code without redesigning it. A successful pass leaves behavior unchanged and the implementation easier to understand, maintain, or execute.
+Clean up the selected implementation before code review. A successful pass leaves behavior unchanged and the code easier to understand, maintain, or execute.
 
 Use four standards throughout:
 
@@ -14,7 +16,7 @@ Use four standards throughout:
 - **Equivalent** — outputs, errors, side effects, ordering, and public contracts remain intact.
 - **Simpler** — cognitive or structural cost decreases; fewer lines alone prove nothing.
 
-This skill authorizes local edits and verification only. Preserve pre-existing work. Behavior changes, unrelated fixes, commits, pushes, pull requests, and deployment require separately authorized workflows.
+This skill authorizes local edits and verification only. In-scope implementation may be simplified; preserve its intended behavior and all unrelated work. Behavior changes, unrelated fixes, commits, pushes, pull requests, and deployment require separately authorized workflows.
 
 ## 1. Resolve
 
@@ -33,7 +35,7 @@ Establish the intended behavior and its best available oracle: existing tests, t
 
 ## 2. Inspect
 
-Read every scoped file plus the callers, dependencies, tests, and contracts needed to prove equivalence. Inspect the code through four lenses:
+Inspect every changed region in the selected change with enough surrounding context to understand it. For explicitly selected files or directories without a diff, inspect their substantive code. Expand to full files, callers, dependencies, tests, and contracts where needed to assess a candidate safely. Use four lenses:
 
 - **Reuse:** replace new duplication with an existing helper, built-in, or verified platform guarantee only when its semantics match the inputs in play.
 - **Clarity:** reduce redundant state, copy-paste variation, unnecessary indirection, deeply nested control flow, leaky abstractions, stale narration, and verified dead code. Preserve named concepts and useful boundaries.
@@ -44,7 +46,7 @@ Treat concurrency, caching-policy changes, algorithm replacements, and other tim
 
 For each candidate, identify the concrete cost removed, the proposed form, the evidence of equivalence, and the smallest affected surface. Skip preference-only rewrites and abstractions justified only by hypothetical future reuse.
 
-**Complete when:** every scoped file has received all four lenses and each retained candidate has a concrete simplification benefit, a bounded edit, and credible equivalence evidence.
+**Complete when:** the selected code has been inspected through all four lenses and each retained candidate has a concrete simplification benefit, a bounded edit, and credible equivalence evidence.
 
 ## 3. Apply
 
@@ -52,17 +54,17 @@ Apply one coherent simplification at a time. Edit only the resolved boundary and
 
 Preserve observable behavior, including error shapes, side effects, ordering, serialization, locale behavior, accessibility behavior, and public or persisted contracts. Remove compatibility code created earlier in the unshipped change only after proving it was never deployed, persisted, published, externally consumed, or used outside the mutation boundary.
 
-Use tests as behavioral oracles. Preserve their assertions and coverage strength. After each meaningful edit, run the cheapest focused proof that can expose an equivalence failure before proceeding. Revert or skip an edit when available evidence cannot establish equivalence.
+Use existing tests as behavioral oracles and preserve their assertions and coverage strength. After each meaningful edit, use the cheapest relevant check that could expose a regression. Direct comparison and static checks may suffice for local mechanical edits; changes involving side effects, ordering, serialization, or public contracts need targeted behavioral evidence. Skip a candidate when establishing equivalence requires investigation beyond the selected scope. Revert only simplification-owned edits when their equivalence remains unsupported.
 
 **Complete when:** every applied edit is within the mutation boundary, independently understandable, behavior-preserving by current evidence, and green under its focused proof.
 
 ## 4. Verify
 
-Inspect the complete simplification-owned diff against the baseline. Confirm that it contains no behavior changes, unrelated cleanup, accidental generated files, or modifications to pre-existing user work.
+Inspect the complete simplification-owned diff against the pre-edit snapshot. Confirm that it preserves intended behavior and unrelated user changes, and contains no unrelated cleanup or accidental generated files.
 
-Run verification proportional to the final blast radius:
+Verify the cleanup in proportion to its final blast radius; the subsequent code review assesses the full implementation independently:
 
-- focused tests for changed behavior;
+- focused tests for behavior touched by the cleanup;
 - relevant type, lint, build, or static checks;
 - broader tests for shared code or cross-cutting changes; and
 - the real interface or integration path when observable behavior depends on it.
@@ -82,6 +84,6 @@ Report:
 - pre-existing or unrelated failures encountered; and
 - remaining uncertainty or blockers.
 
-If no worthwhile simplification survived verification, say so and leave the code unchanged. Do not use net lines removed as the success metric. End with the locally verified working tree and leave a complete-diff review against the intended base as the next step; use `$ns-code-review` when available, otherwise directly prove introduced findings, repair only decision-complete ones, rerun verification, and freshly review until clean or blocked.
+If no worthwhile simplification survived verification, say so and leave the code unchanged. Do not use net lines removed as the success metric. End with the locally verified working tree. Identify complete-diff review against the intended base as the next step, using `$ns-code-review` when available. Execute that review only when included in the user-authorized task; when the companion is unavailable, review the complete diff directly. Otherwise stop after delivery.
 
 **Complete when:** the user can inspect or review the result without relying on earlier commentary, and every completion claim is supported by fresh evidence.

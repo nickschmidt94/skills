@@ -10,6 +10,26 @@
       "id": 2,
       "prompt": "Simplify this verified change. The code is clear and behavior is covered; I merely prefer a different naming and abstraction style.",
       "expected_output": "Finds no consequence-backed simplification, leaves the code unchanged, reports a successful no-op, and does not use preference or line count as evidence."
+    },
+    {
+      "id": 3,
+      "prompt": "Clean up the implementation I just finished. The changed regions are in a large module, and another file contains unrelated unfinished edits. I will run code review afterward.",
+      "expected_output": "Inspects the changed regions and necessary context, simplifies useful in-scope candidates, preserves unrelated edits, verifies cleanup regressions, and stops with review as the next step without running it."
+    },
+    {
+      "id": 4,
+      "prompt": "Simplify this local mechanical cleanup. Existing type checks cover the affected code; one other candidate changes side-effect ordering and cannot be verified within this task.",
+      "expected_output": "Uses direct comparison and relevant static checks for the mechanical candidate, skips the unsupported ordering candidate, and reports the remaining uncertainty without broadening into an audit."
+    },
+    {
+      "id": 5,
+      "prompt": "Simplify the finished change, then review the complete diff. The ns-code-review companion is not installed.",
+      "expected_output": "Verifies the simplification, then performs the already-authorized complete-diff review directly without requiring the optional companion or asking for repeated permission. Does not commit or publish."
+    },
+    {
+      "id": 6,
+      "prompt": "Simplify the substantive code in this explicitly selected file. There is no git diff, and the only useful cleanup is a redundant local variable.",
+      "expected_output": "Inspects the selected file, applies the bounded behavior-preserving cleanup if evidence supports it, verifies the result, and hands off to review."
     }
   ]
 }
