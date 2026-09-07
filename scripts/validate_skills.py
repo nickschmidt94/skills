@@ -45,12 +45,22 @@ def validate_skill(skill_dir: Path, skill_names: set[str], errors: list[str]) ->
         frontmatter = load_yaml(skill_file, match.group(1), errors)
         if isinstance(frontmatter, dict):
             unsupported = sorted(
-                set(frontmatter) - {"name", "description", "disable-model-invocation"}
+                set(frontmatter) - {"name", "description", "disable-model-invocation", "metadata"}
             )
             if unsupported:
                 errors.append(
                     f"{skill_file.relative_to(ROOT)}: unsupported frontmatter fields: {', '.join(unsupported)}"
                 )
+
+            if "metadata" in frontmatter:
+                metadata = frontmatter["metadata"]
+                if not isinstance(metadata, dict) or any(
+                    not isinstance(key, str) or not isinstance(value, str)
+                    for key, value in metadata.items()
+                ):
+                    errors.append(
+                        f"{skill_file.relative_to(ROOT)}: metadata must be a mapping of strings to strings"
+                    )
 
             name = frontmatter.get("name")
             description = frontmatter.get("description")

@@ -1,6 +1,8 @@
 ---
 name: ns-work
 description: Implement and locally verify an approved plan or decision-complete repository change. Use when the current phase should produce a verified working tree without committing, pushing, opening a pull request, or deploying.
+metadata:
+  version: "1.0.0"
 ---
 
 # NS Work
@@ -12,7 +14,7 @@ Use four standards throughout:
 - **Decision-complete** — the request or accepted plan resolves product behavior, scope, and consequential technical choices.
 - **Baseline** — repository state and pre-existing changes recorded before the first edit.
 - **Owned** — changes introduced for the current request.
-- **Green** — relevant verification passes, or every non-passing result is classified and reported.
+- **Green** — relevant verification passes. Classifying a failure does not make it pass; use the delivery statuses below when verification is incomplete or baseline failures remain.
 
 `ns-work` owns local implementation and verification. Branch creation, commits, pushes, pull requests, deployment, publication, and external messages remain with separately authorized workflows.
 
@@ -28,7 +30,7 @@ Apply this authority order:
 
 Repository evidence may invalidate an assumption but does not silently authorize new scope. Treat the plan as a decision artifact rather than an execution script.
 
-Confirm that the work is decision-complete. Ask the smallest focused question that can close a material gap. When substantial product framing or architectural planning remains, complete a grounded, decision-complete plan first when the request authorizes planning; use `$ns-plan` when available. Otherwise stop and name the precise unresolved planning decision rather than inventing it during implementation.
+Confirm that the work is decision-complete. Resolve routine, reversible implementation choices from repository evidence without asking. Ask the smallest focused question only when an unresolved choice materially changes product behavior, scope, public contracts, or consequential architecture. When substantial product framing or architectural planning remains, complete a grounded, decision-complete plan first when the request authorizes planning; use `$ns-plan` when available. Otherwise stop and name the precise unresolved planning decision rather than inventing it during implementation.
 
 **Complete when:** the target workspace, in-scope outcomes, consequential boundaries, settled decisions, and observable verification are known.
 
@@ -58,7 +60,9 @@ Each task must name:
 - dependencies that affect ordering;
 - focused verification proving completion.
 
-Keep progress in the task tracker and repository state. Leave the accepted plan unchanged unless the user separately requests a plan revision.
+Use sub-agents when available for bounded work that can run independently alongside useful primary-agent work, including an independent review when it would materially improve confidence. Keep trivial or tightly coupled work inline. Give each sub-agent its outcome, relevant context, owned files or surfaces, dependencies, constraints, and required verification. Delegate only within the authorized scope; serialize edits to shared files and shared mutable resources. If delegation is unavailable, execute the same tasks locally.
+
+Keep progress in the task tracker when available and repository state. Leave the accepted plan unchanged unless the user separately requests a plan revision.
 
 **Complete when:** every in-scope outcome maps to one task, dependencies determine a safe order, and no task requires redesigning the solution.
 
@@ -71,7 +75,7 @@ For each task:
 3. Make the smallest coherent change that produces the task outcome.
 4. Run focused verification.
 5. Inspect the actual owned diff for scope and correctness.
-6. Return the affected surface to green before starting the next task.
+6. Verify the prerequisite behavior before starting work that depends on it. Independent tasks may proceed concurrently.
 
 When the in-scope plan, specification, or concrete request changes domain behavior, resolve the active context through root `CONTEXT-MAP.md` when present; otherwise use the repository root. Read the active context's `CONTEXT.md` when available and implement with its accepted vocabulary and relationships. If current code or evidence materially contradicts the accepted model, return the contradiction to planning rather than choosing a new meaning during implementation.
 
@@ -96,26 +100,32 @@ Choose evidence by change shape:
 
 Use **comment integrity** for owned changes: let names, structure, assertions, and logs express visible behavior. Reserve comments for verified reasons or constraints that code cannot express. Encode durable internal constraints in types, tests, runtime checks, or verifiers. Resolve or narrowly justify each owned lint or type suppression.
 
-Fix failures caused by the owned change. Investigate ambiguous failures until they are classified. Preserve scope when a failure is pre-existing or unrelated, and record it for delivery. Stop when authoritative verification cannot run and no in-scope remediation can restore it.
+Fix failures caused by the owned change. Investigate ambiguous failures until they are classified. Preserve scope when a failure is pre-existing or unrelated, and record it for delivery. When authoritative verification cannot run, attempt in-scope remediation and continue independent work and available checks. Pause work that depends on the unverified prerequisite; report the affected outcome as partially verified or blocked, with the missing check and what would unblock it. Stop the overall run only when no useful independent work remains.
 
 **Complete when:** the task outcome is observable, focused verification is green, the task diff contains only owned changes, and every owned comment or suppression satisfies comment integrity.
 
 ## 5. Integrate
 
-After all tasks are individually green:
+After all unblocked tasks have passed focused verification, integrate the available changes and retain explicit verification gaps for blocked outcomes:
 
 - inspect the complete owned diff, including untracked and generated files;
-- reconcile interactions across tasks and shared contracts;
+- the primary agent inspects delegated changes and reconciles interactions across tasks and shared contracts; sub-agent completion reports alone are not verification of the combined working tree;
 - remove only obvious accidental complexity introduced by the owned change when the local edit is decision-complete and covered by the current verification oracle;
 - report a non-trivial simplification signal—duplicated policy, a questionable new seam, scattered ownership, deep branching, or unshipped transitional scaffolding—as a handoff for a separately selected bounded, behavior-preserving pass; that later workflow may use `$ns-simplify` when available, but do not invoke it or expand implementation scope here;
 - run broader checks proportional to the affected surface and risk;
 - exercise the real application when behavior is user-visible or integration-dependent.
 
-Classify every remaining failure as owned, pre-existing, unrelated, environmental, or blocked. Resolve owned failures before delivery.
+Classify every remaining failure as owned, pre-existing, unrelated, environmental, or blocked. Resolve owned failures before claiming completion. If an owned failure cannot be resolved within scope, deliver the incomplete state with its blocker explicitly identified.
 
-**Complete when:** every in-scope outcome works with the others, relevant broader verification is green, no unintended change remains, and unresolved evidence gaps are explicit.
+**Complete when:** every in-scope outcome works with the others, relevant broader verification passes or only proven unrelated baseline failures remain, and no unintended change remains. Missing required evidence leaves the affected outcome incomplete; report that state through Deliver.
 
 ## 6. Deliver
+
+Choose the delivery status from fresh evidence:
+
+- **Verified** — all in-scope outcomes and required checks pass.
+- **Verified with unrelated baseline failures** — in-scope outcomes pass; remaining failures are proven pre-existing and unrelated, and do not leave required evidence missing.
+- **Partially verified or blocked** — required evidence is missing, an in-scope outcome is incomplete, or an owned failure remains. Name the affected outcome and missing evidence; do not claim overall completion.
 
 Report:
 
@@ -127,6 +137,6 @@ Report:
 - any non-trivial simplification signal left for a separate bounded, behavior-preserving pass, and whether `$ns-simplify` is available for it;
 - confirmation that pre-existing work was preserved.
 
-Make completion claims only from fresh evidence gathered during this run. End with the verified working tree and leave shipping decisions to the user.
+Make completion claims only from fresh evidence gathered during this run. Leave the working tree with its verification status explicit and shipping decisions to the user.
 
 **Complete when:** the user can inspect, commit, or hand off the change without relying on earlier commentary to understand its state.

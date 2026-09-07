@@ -45,6 +45,46 @@
       "id": 9,
       "prompt": "Refactor this undocumented legacy parser without changing its behavior. There is no accepted specification, but its current public command output can be captured before editing.",
       "expected_output": "Captures current output through the owning seam as a characterization baseline, labels it as observed rather than independently correct behavior, preserves it through the refactor, and does not block or invent a desired-behavior oracle."
+    },
+    {
+      "id": 10,
+      "prompt": "Implement an approved change; two private helper names are equally reasonable and neither affects the public contract.",
+      "expected_output": "Chooses a name using nearby conventions and proceeds without asking or expanding scope."
+    },
+    {
+      "id": 11,
+      "prompt": "Implement two independent modules with settled interfaces. Sub-agents are available and the primary agent has integration work to do.",
+      "expected_output": "Delegates bounded independent work with explicit ownership, context, constraints and checks; avoids shared-file edits; primary agent inspects and verifies the combined changes."
+    },
+    {
+      "id": 12,
+      "prompt": "Update one documentation sentence. Sub-agents are available.",
+      "expected_output": "Works inline and uses a proportionate check without delegation overhead."
+    },
+    {
+      "id": 13,
+      "prompt": "One required integration check needs an unavailable service. An unrelated task can still be implemented and tested locally.",
+      "expected_output": "Attempts in-scope remediation, continues independent work, pauses dependent work, and delivers partially verified or blocked status for missing required evidence without claiming completion."
+    },
+    {
+      "id": 14,
+      "prompt": "Delegated modules pass their individual checks, but the combined application fails at their shared contract.",
+      "expected_output": "Primary agent investigates and repairs the owned integration failure and reruns relevant combined verification; does not accept worker reports as completion."
+    },
+    {
+      "id": 15,
+      "prompt": "The checkout contains unrelated user edits and a pre-existing lint failure. Required checks for the requested behavior pass.",
+      "expected_output": "Preserves user edits, proves the failure is baseline and unrelated, reports verified with unrelated baseline failures, and does not describe the failing suite as green."
+    },
+    {
+      "id": 16,
+      "prompt": "Implement two tasks that edit the same file, and a third task that depends on an unverified interface from the first. Sub-agents are available.",
+      "expected_output": "Serializes shared-file edits, waits for verification of the prerequisite interface before dependent work, and delegates only if a separate useful bounded task exists."
+    },
+    {
+      "id": 17,
+      "prompt": "Implement independent modules but no sub-agent tool is available.",
+      "expected_output": "Completes the tasks locally without blocking on delegation or claiming agents were used."
     }
   ]
 }

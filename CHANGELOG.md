@@ -2,6 +2,12 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-09-07
+
+### Changed
+
+- [`ns-work`](skills/ns-work/SKILL.md) now allows bounded sub-agent delegation and independent tasks to proceed concurrently, while the primary agent verifies their combined result. Routine implementation choices no longer require a question, and unavailable checks pause dependent work while independent work continues; delivery distinguishes verified outcomes from incomplete evidence. Shipping still requires separate authorization.
+
 ## 2026-08-30
 
 ### Changed
