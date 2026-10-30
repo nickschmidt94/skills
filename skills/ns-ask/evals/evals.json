@@ -1,0 +1,35 @@
+{
+  "skill_name": "ns-ask",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "How does the validator decide whether a sibling skill reference is broken?",
+      "expected_output": "Selects Codebase Q&A, traces the real check in the validator with Verified path:line citations, uses the standard sections without a mode section, and states that no further step is needed. Does not edit files."
+    },
+    {
+      "id": 2,
+      "prompt": "I want to add rate limiting to our public API. Help me figure out what we need before planning.",
+      "expected_output": "Selects Requirements interview, grounds the current API surface, asks exactly one consequential question with a recommended answer and why it matters, and waits for the reply instead of asking a batch or writing a plan."
+    },
+    {
+      "id": 3,
+      "prompt": "Rate limits are per API key, 100 requests per minute, return 429 with Retry-After. That's everything I care about.",
+      "expected_output": "Continuing an interview, records the settled decisions, stops asking once remaining unknowns would not change the plan, produces a Requirements brief, and names creating a plan with $ns-plan as the next step without running it."
+    },
+    {
+      "id": 4,
+      "prompt": "Should we store sessions in Redis or in Postgres?",
+      "expected_output": "Selects Decision advice, compares both options on criteria grounded in this codebase, recommends one, states what would change the recommendation, and marks unverifiable claims as Assumed."
+    },
+    {
+      "id": 5,
+      "prompt": "Explain what docs/plans/2026-10-01-feat-billing-plan.md is going to do and why unit 3 depends on unit 1.",
+      "expected_output": "Selects Plan explanation, walks through the plan in its order, explains the unit 3 dependency with citations, flags any gaps against the current code without rewriting the plan, and suggests review or implementation as the next step."
+    },
+    {
+      "id": 6,
+      "prompt": "Explain how the login flow works and then just fix the bug you find. The ns-plan skill is not installed.",
+      "expected_output": "Answers the Q&A with evidence, records the bug under Open questions, does not edit code or run tests, and describes planning the fix in plain language because the companion is unavailable."
+    }
+  ]
+}
