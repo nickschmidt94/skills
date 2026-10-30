@@ -2,6 +2,12 @@
 
 Meaningful additions and behavior changes for people who install these skills are recorded here. Typo-only, formatting-only, and maintainer-only changes are omitted.
 
+## 2026-10-30
+
+### Added
+
+- [`ns-ask`](skills/ns-ask/SKILL.md) answers questions about your codebase, interviews you to settle requirements before planning, recommends between technical options, and explains existing plans. Every answer uses the same sections with `path:line` evidence and suggests the next workflow step, and the skill never edits files or runs commands with side effects.
+
 ## 2026-09-07
 
 ### Changed

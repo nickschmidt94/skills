@@ -13,6 +13,7 @@ The main delivery path is:
 `ns-plan → ns-plan-review → ns-work → ns-simplify → ns-code-review → ns-ship-pr`
 
 - [`ns-finish-line`](skills/ns-finish-line/SKILL.md) is an explicit-only workflow for carrying supported decisions to ready artifacts or verified repository work to an open pull request; it stops before merge and deployment.
+- [`ns-ask`](skills/ns-ask/SKILL.md) answers codebase questions, interviews you one question at a time to settle requirements, advises on technical decisions, and explains existing plans in one repeatable, evidence-cited format without changing anything.
 - [`ns-plan`](skills/ns-plan/SKILL.md) creates grounded, decision-complete plans that make ownership, context, commit boundaries, and verification legible before implementation.
 - [`ns-plan-review`](skills/ns-plan-review/SKILL.md) proportionally hardens completed plans with direct Builder review for ordinary work and independent Red-team review for exposed high-risk boundaries.
 - [`ns-work`](skills/ns-work/SKILL.md) implements approved work with bounded sub-agent delegation when useful, caller-visible proof, and explicit local verification status.
